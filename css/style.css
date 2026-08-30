@@ -1312,3 +1312,75 @@ body {
         font-size: 28px;
     }
 }
+/* =========================
+   GPA Scale Selector
+========================= */
+
+.gpa-scale-selector {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.scale-option {
+    min-height: 100px;
+
+    padding: 16px;
+
+    background: var(--background);
+
+    border: 2px solid transparent;
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    transition: 0.2s ease;
+}
+
+.scale-option input {
+    display: none;
+}
+
+.scale-option.active {
+    background: #EEF3F8;
+    border-color: var(--navy);
+}
+
+.scale-number {
+    color: var(--navy);
+
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.scale-label {
+    color: var(--text-secondary);
+
+    font-size: 13px;
+
+    margin-top: 3px;
+}
+
+@media (max-width: 600px) {
+
+    .gpa-scale-selector {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .scale-option {
+        min-height: 90px;
+        padding: 12px;
+    }
+
+    .scale-number {
+        font-size: 22px;
+    }
+}
