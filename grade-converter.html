@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css?v=17">
+
+    <title>محول الدرجات | وِجهة</title>
+</head>
+
+<body>
+
+    <header class="top-bar">
+
+        <div class="brand">
+            <img src="assets/images/wijha-logo.jpg" alt="شعار وِجهة">
+            <span>محول الدرجات</span>
+        </div>
+
+        <div class="top-actions">
+            <button aria-label="الإشعارات">🔔</button>
+            <button aria-label="الوضع الليلي">🌙</button>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="page-intro">
+
+            <p class="page-eyebrow">
+                الأدوات الأكاديمية
+            </p>
+
+            <h1>
+                محول الدرجات
+            </h1>
+
+            <p class="page-description">
+                حوّل درجتك في الاختبار أو الواجب إلى وزنها الفعلي من الدرجة النهائية للمقرر.
+            </p>
+
+        </section>
+
+
+        <section class="grade-converter">
+
+            <div class="calculator-section">
+
+                <div class="calculator-heading">
+
+                    <div>
+                        <span class="calculator-step">01</span>
+                        <h2>بيانات الدرجة</h2>
+                    </div>
+
+                    <p>
+                        أدخل درجتك والدرجة الكاملة ثم وزن التقييم.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="score">
+                            درجتك
+                        </label>
+
+                        <input
+                            type="number"
+                            id="score"
+                            min="0"
+                            step="0.01"
+                            placeholder="مثال: 42"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="max-score">
+                            الدرجة الكاملة
+                        </label>
+
+                        <input
+                            type="number"
+                            id="max-score"
+                            min="0.01"
+                            step="0.01"
+                            placeholder="مثال: 50"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="weight">
+                            وزن التقييم من الدرجة النهائية
+                        </label>
+
+                        <input
+                            type="number"
+                            id="weight"
+                            min="0"
+                            max="100"
+                            step="0.01"
+                            placeholder="مثال: 20"
+                        >
+
+                        <small>
+                            مثال: اختبار يمثل 20% من المقرر
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-weights">
+
+                <span>أوزان سريعة:</span>
+
+                <button type="button" data-weight="5">5%</button>
+                <button type="button" data-weight="10">10%</button>
+                <button type="button" data-weight="15">15%</button>
+                <button type="button" data-weight="20">20%</button>
+                <button type="button" data-weight="30">30%</button>
+                <button type="button" data-weight="40">40%</button>
+                <button type="button" data-weight="60">60%</button>
+
+            </div>
+
+
+            <button
+                class="calculate-gpa-button"
+                id="calculate-grade"
+                type="button"
+            >
+                احسب الدرجة
+            </button>
+
+
+            <section class="gpa-results">
+
+                <div class="result-heading">
+                    النتيجة
+                </div>
+
+                <div class="results-grid">
+
+                    <div class="result-card">
+
+                        <span>
+                            نسبتك في التقييم
+                        </span>
+
+                        <strong id="score-percentage">
+                            —
+                        </strong>
+
+                        <small>
+                            %
+                        </small>
+
+                    </div>
+
+
+                    <div class="result-card">
+
+                        <span>
+                            الدرجة المحسوبة
+                        </span>
+
+                        <strong id="weighted-score">
+                            —
+                        </strong>
+
+                        <small id="weighted-score-label">
+                            من —
+                        </small>
+
+                    </div>
+
+
+                    <div class="result-card">
+
+                        <span>
+                            المتبقي من وزن التقييم
+                        </span>
+
+                        <strong id="lost-score">
+                            —
+                        </strong>
+
+                        <small>
+                            درجة
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="privacy-note">
+
+                <div class="privacy-icon">
+                    🔒
+                </div>
+
+                <div>
+
+                    <h3>
+                        حساب مباشر
+                    </h3>
+
+                    <p>
+                        لا يتم حفظ الدرجة أو إرسالها إلى أي خادم.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <nav class="bottom-nav" aria-label="التنقل الرئيسي">
+
+        <a href="index.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">⌂</span>
+            <span class="bottom-nav-label">الرئيسية</span>
+        </a>
+
+        <a href="tools.html" class="bottom-nav-item active">
+            <span class="bottom-nav-icon">▦</span>
+            <span class="bottom-nav-label">الأدوات</span>
+        </a>
+
+        <a href="services.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">◇</span>
+            <span class="bottom-nav-label">الخدمات</span>
+        </a>
+
+        <a href="library.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">▤</span>
+            <span class="bottom-nav-label">المكتبة</span>
+        </a>
+
+        <a href="news.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">▱</span>
+            <span class="bottom-nav-label">الأخبار</span>
+        </a>
+
+    </nav>
+
+
+    <script src="js/grade-converter.js?v=1"></script>
+
+</body>
+
+</html>
