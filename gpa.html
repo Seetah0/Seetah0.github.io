@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/style.css?v=10">
+    <link rel="stylesheet" href="css/style.css?v=11">
 
     <title>حاسبة المعدل | وِجهة</title>
 </head>
 
 <body>
+
+    <!-- =========================
+         Top Bar
+    ========================== -->
 
     <header class="top-bar">
 
@@ -26,7 +30,12 @@
 
     </header>
 
+
     <main>
+
+        <!-- =========================
+             Introduction
+        ========================== -->
 
         <section class="page-intro">
 
@@ -39,11 +48,294 @@
             </h1>
 
             <p class="page-description">
-                احسب معدلك الفصلي والتراكمي وفق نظام الدرجات المعتمد في جامعة الإمام عبدالرحمن بن فيصل.
+                احسب معدلك الفصلي والتراكمي بسهولة.
+                أدخل بياناتك الأكاديمية والمواد الحالية، ثم احسب معدلك المتوقع.
             </p>
 
         </section>
 
+
+        <!-- =========================
+             Previous GPA
+        ========================== -->
+
+        <section class="gpa-calculator">
+
+            <div class="calculator-section">
+
+                <div class="calculator-heading">
+
+                    <div>
+                        <span class="calculator-step">01</span>
+                        <h2>بياناتك السابقة</h2>
+                    </div>
+
+                    <p>
+                        إذا كان هذا أول فصل لك، اترك هذه البيانات فارغة.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="previous-gpa">
+                            المعدل التراكمي السابق
+                        </label>
+
+                        <input
+                            type="number"
+                            id="previous-gpa"
+                            min="0"
+                            max="5"
+                            step="0.01"
+                            placeholder="مثال: 4.25"
+                        >
+
+                        <small>
+                            من 5.00
+                        </small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="previous-hours">
+                            الساعات المجتازة سابقًا
+                        </label>
+
+                        <input
+                            type="number"
+                            id="previous-hours"
+                            min="0"
+                            placeholder="مثال: 60"
+                        >
+
+                        <small>
+                            مجموع الساعات قبل هذا الفصل
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 Current Courses
+            ========================== -->
+
+            <div class="calculator-section">
+
+                <div class="calculator-heading">
+
+                    <div>
+                        <span class="calculator-step">02</span>
+                        <h2>مواد الفصل الحالي</h2>
+                    </div>
+
+                    <p>
+                        أضيفي كل مادة مع عدد ساعاتها والدرجة المتوقعة.
+                    </p>
+
+                </div>
+
+
+                <div class="courses-list">
+
+                    <div class="course-row">
+
+                        <div class="course-number">
+                            1
+                        </div>
+
+                        <div class="course-fields">
+
+                            <div class="form-group course-name">
+
+                                <label>
+                                    اسم المادة
+                                </label>
+
+                                <input
+                                    type="text"
+                                    placeholder="مثال: قواعد البيانات"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    الساعات
+                                </label>
+
+                                <select>
+                                    <option value="">اختر</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    التقدير
+                                </label>
+
+                                <select>
+
+                                    <option value="">
+                                        اختر
+                                    </option>
+
+                                    <option value="5">
+                                        A+
+                                    </option>
+
+                                    <option value="4.75">
+                                        A
+                                    </option>
+
+                                    <option value="4.5">
+                                        B+
+                                    </option>
+
+                                    <option value="4">
+                                        B
+                                    </option>
+
+                                    <option value="3.5">
+                                        C+
+                                    </option>
+
+                                    <option value="3">
+                                        C
+                                    </option>
+
+                                    <option value="2.5">
+                                        D+
+                                    </option>
+
+                                    <option value="2">
+                                        D
+                                    </option>
+
+                                    <option value="1">
+                                        F
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button class="add-course-button" type="button">
+                    <span>＋</span>
+                    إضافة مادة أخرى
+                </button>
+
+            </div>
+
+
+            <!-- =========================
+                 Calculate
+            ========================== -->
+
+            <button class="calculate-gpa-button" type="button">
+                احسب المعدل
+            </button>
+
+
+            <!-- =========================
+                 Results
+            ========================== -->
+
+            <section class="gpa-results">
+
+                <div class="result-heading">
+                    النتيجة
+                </div>
+
+
+                <div class="results-grid">
+
+                    <div class="result-card">
+
+                        <span>
+                            المعدل الفصلي
+                        </span>
+
+                        <strong>
+                            —
+                        </strong>
+
+                        <small>
+                            من 5.00
+                        </small>
+
+                    </div>
+
+
+                    <div class="result-card">
+
+                        <span>
+                            المعدل التراكمي الجديد
+                        </span>
+
+                        <strong>
+                            —
+                        </strong>
+
+                        <small>
+                            من 5.00
+                        </small>
+
+                    </div>
+
+
+                    <div class="result-card">
+
+                        <span>
+                            ساعات الفصل
+                        </span>
+
+                        <strong>
+                            —
+                        </strong>
+
+                        <small>
+                            ساعة
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- =========================
+             Privacy
+        ========================== -->
 
         <section class="privacy-note">
 
@@ -52,19 +344,25 @@
             </div>
 
             <div>
+
                 <h3>
-                    بدون حفظ بياناتك
+                    بياناتك تبقى عندك
                 </h3>
 
                 <p>
-                    جميع الحسابات ستتم داخل متصفحك، ولا يتم إرسال درجاتك أو معدلك إلى أي خادم.
+                    لا يتم حفظ أو إرسال معدلك أو درجاتك أو بيانات المواد إلى وِجهة.
                 </p>
+
             </div>
 
         </section>
 
     </main>
 
+
+    <!-- =========================
+         Bottom Navigation
+    ========================== -->
 
     <nav class="bottom-nav" aria-label="التنقل الرئيسي">
 
