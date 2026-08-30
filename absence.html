@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/style.css?v=14">
+    <link rel="stylesheet" href="css/style.css?v=15">
 
     <title>حاسبة الغياب | وِجهة</title>
 </head>
@@ -26,6 +26,7 @@
 
     </header>
 
+
     <main>
 
         <section class="page-intro">
@@ -39,13 +40,16 @@
             </h1>
 
             <p class="page-description">
-                احسب نسبة غيابك والحد المتبقي قبل الوصول إلى الحرمان وفق ضوابط الحضور في جامعة الإمام عبدالرحمن بن فيصل.
+                احسب نسبة غيابك بناءً على ساعات الاتصال للمقرر،
+                واعرف كم تبقى لك قبل الوصول إلى حد الغياب.
             </p>
 
         </section>
 
 
         <section class="absence-calculator">
+
+            <!-- بيانات المقرر -->
 
             <div class="calculator-section">
 
@@ -57,28 +61,13 @@
                     </div>
 
                     <p>
-                        أدخل عدد المحاضرات الأسبوعية وعدد أسابيع الدراسة.
+                        أدخل عدد أسابيع الدراسة وعدد ساعات المقرر أسبوعيًا.
                     </p>
 
                 </div>
 
+
                 <div class="form-grid">
-
-                    <div class="form-group">
-
-                        <label for="weekly-classes">
-                            عدد المحاضرات أسبوعيًا
-                        </label>
-
-                        <input
-                            type="number"
-                            id="weekly-classes"
-                            min="1"
-                            placeholder="مثال: 2"
-                        >
-
-                    </div>
-
 
                     <div class="form-group">
 
@@ -90,8 +79,30 @@
                             type="number"
                             id="study-weeks"
                             min="1"
+                            step="1"
                             placeholder="مثال: 15"
                         >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="weekly-hours">
+                            ساعات المقرر أسبوعيًا
+                        </label>
+
+                        <input
+                            type="number"
+                            id="weekly-hours"
+                            min="0.5"
+                            step="0.5"
+                            placeholder="مثال: 3"
+                        >
+
+                        <small>
+                            مجموع ساعات الاتصال للمقرر في الأسبوع
+                        </small>
 
                     </div>
 
@@ -99,6 +110,8 @@
 
             </div>
 
+
+            <!-- الغياب الحالي -->
 
             <div class="calculator-section">
 
@@ -110,24 +123,26 @@
                     </div>
 
                     <p>
-                        أدخل عدد المحاضرات التي تغيبت عنها حتى الآن.
+                        أدخل مجموع ساعات الغياب المسجلة عليك حتى الآن.
                     </p>
 
                 </div>
+
 
                 <div class="form-grid">
 
                     <div class="form-group">
 
-                        <label for="current-absences">
-                            عدد الغيابات الحالية
+                        <label for="current-absence-hours">
+                            ساعات الغياب الحالية
                         </label>
 
                         <input
                             type="number"
-                            id="current-absences"
+                            id="current-absence-hours"
                             min="0"
-                            placeholder="مثال: 2"
+                            step="0.5"
+                            placeholder="مثال: 4"
                         >
 
                     </div>
@@ -137,19 +152,25 @@
             </div>
 
 
+            <!-- زر الحساب -->
+
             <button
                 class="calculate-gpa-button"
+                id="calculate-absence"
                 type="button"
             >
                 احسب الغياب
             </button>
 
 
+            <!-- النتائج -->
+
             <section class="gpa-results">
 
                 <div class="result-heading">
                     النتيجة
                 </div>
+
 
                 <div class="results-grid">
 
@@ -159,7 +180,7 @@
                             نسبة الغياب الحالية
                         </span>
 
-                        <strong>
+                        <strong id="absence-percentage">
                             —
                         </strong>
 
@@ -173,15 +194,15 @@
                     <div class="result-card">
 
                         <span>
-                            المتبقي قبل حد 15%
+                            المتبقي قبل 15%
                         </span>
 
-                        <strong>
+                        <strong id="remaining-hours">
                             —
                         </strong>
 
                         <small>
-                            محاضرة
+                            ساعة
                         </small>
 
                     </div>
@@ -190,15 +211,15 @@
                     <div class="result-card">
 
                         <span>
-                            إجمالي محاضرات المقرر
+                            إجمالي ساعات المقرر
                         </span>
 
-                        <strong>
+                        <strong id="total-course-hours">
                             —
                         </strong>
 
                         <small>
-                            محاضرة
+                            ساعة
                         </small>
 
                     </div>
@@ -207,6 +228,23 @@
 
             </section>
 
+
+            <!-- الحالة -->
+
+            <section
+                class="absence-status"
+                id="absence-status"
+                hidden
+            >
+
+                <h3 id="absence-status-title"></h3>
+
+                <p id="absence-status-text"></p>
+
+            </section>
+
+
+            <!-- تنبيه -->
 
             <section class="privacy-note">
 
@@ -221,7 +259,8 @@
                     </h3>
 
                     <p>
-                        هذه الحاسبة أداة تقديرية فقط. المرجع النهائي هو سجل الحضور في نظام الجامعة واللوائح الرسمية المعتمدة.
+                        الحاسبة تقديرية، والمرجع النهائي هو سجل الحضور والغياب
+                        في أنظمة الجامعة واللوائح الرسمية المعتمدة.
                     </p>
 
                 </div>
@@ -261,6 +300,9 @@
         </a>
 
     </nav>
+
+
+    <script src="js/absence.js?v=1"></script>
 
 </body>
 
