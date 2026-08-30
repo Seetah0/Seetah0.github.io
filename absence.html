@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css?v=14">
+
+    <title>حاسبة الغياب | وِجهة</title>
+</head>
+
+<body>
+
+    <header class="top-bar">
+
+        <div class="brand">
+            <img src="assets/images/wijha-logo.jpg" alt="شعار وِجهة">
+            <span>حاسبة الغياب</span>
+        </div>
+
+        <div class="top-actions">
+            <button aria-label="الإشعارات">🔔</button>
+            <button aria-label="الوضع الليلي">🌙</button>
+        </div>
+
+    </header>
+
+    <main>
+
+        <section class="page-intro">
+
+            <p class="page-eyebrow">
+                الأدوات الأكاديمية
+            </p>
+
+            <h1>
+                حاسبة الغياب
+            </h1>
+
+            <p class="page-description">
+                احسب نسبة غيابك والحد المتبقي قبل الوصول إلى الحرمان وفق ضوابط الحضور في جامعة الإمام عبدالرحمن بن فيصل.
+            </p>
+
+        </section>
+
+
+        <section class="absence-calculator">
+
+            <div class="calculator-section">
+
+                <div class="calculator-heading">
+
+                    <div>
+                        <span class="calculator-step">01</span>
+                        <h2>بيانات المقرر</h2>
+                    </div>
+
+                    <p>
+                        أدخل عدد المحاضرات الأسبوعية وعدد أسابيع الدراسة.
+                    </p>
+
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="weekly-classes">
+                            عدد المحاضرات أسبوعيًا
+                        </label>
+
+                        <input
+                            type="number"
+                            id="weekly-classes"
+                            min="1"
+                            placeholder="مثال: 2"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="study-weeks">
+                            عدد أسابيع الدراسة
+                        </label>
+
+                        <input
+                            type="number"
+                            id="study-weeks"
+                            min="1"
+                            placeholder="مثال: 15"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="calculator-section">
+
+                <div class="calculator-heading">
+
+                    <div>
+                        <span class="calculator-step">02</span>
+                        <h2>غيابك الحالي</h2>
+                    </div>
+
+                    <p>
+                        أدخل عدد المحاضرات التي تغيبت عنها حتى الآن.
+                    </p>
+
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="current-absences">
+                            عدد الغيابات الحالية
+                        </label>
+
+                        <input
+                            type="number"
+                            id="current-absences"
+                            min="0"
+                            placeholder="مثال: 2"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="calculate-gpa-button"
+                type="button"
+            >
+                احسب الغياب
+            </button>
+
+
+            <section class="gpa-results">
+
+                <div class="result-heading">
+                    النتيجة
+                </div>
+
+                <div class="results-grid">
+
+                    <div class="result-card">
+
+                        <span>
+                            نسبة الغياب الحالية
+                        </span>
+
+                        <strong>
+                            —
+                        </strong>
+
+                        <small>
+                            %
+                        </small>
+
+                    </div>
+
+
+                    <div class="result-card">
+
+                        <span>
+                            المتبقي قبل حد 15%
+                        </span>
+
+                        <strong>
+                            —
+                        </strong>
+
+                        <small>
+                            محاضرة
+                        </small>
+
+                    </div>
+
+
+                    <div class="result-card">
+
+                        <span>
+                            إجمالي محاضرات المقرر
+                        </span>
+
+                        <strong>
+                            —
+                        </strong>
+
+                        <small>
+                            محاضرة
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="privacy-note">
+
+                <div class="privacy-icon">
+                    ℹ️
+                </div>
+
+                <div>
+
+                    <h3>
+                        تنبيه مهم
+                    </h3>
+
+                    <p>
+                        هذه الحاسبة أداة تقديرية فقط. المرجع النهائي هو سجل الحضور في نظام الجامعة واللوائح الرسمية المعتمدة.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <nav class="bottom-nav" aria-label="التنقل الرئيسي">
+
+        <a href="index.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">⌂</span>
+            <span class="bottom-nav-label">الرئيسية</span>
+        </a>
+
+        <a href="tools.html" class="bottom-nav-item active">
+            <span class="bottom-nav-icon">▦</span>
+            <span class="bottom-nav-label">الأدوات</span>
+        </a>
+
+        <a href="services.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">◇</span>
+            <span class="bottom-nav-label">الخدمات</span>
+        </a>
+
+        <a href="library.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">▤</span>
+            <span class="bottom-nav-label">المكتبة</span>
+        </a>
+
+        <a href="news.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">▱</span>
+            <span class="bottom-nav-label">الأخبار</span>
+        </a>
+
+    </nav>
+
+</body>
+
+</html>
