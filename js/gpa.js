@@ -1,33 +1,245 @@
-/* =========================
-   WIJHA | GPA Calculator
-========================= */
-
-const coursesList = document.querySelector(".courses-list");
-const addCourseButton = document.querySelector(".add-course-button");
-const calculateButton = document.querySelector(".calculate-gpa-button");
-
-const previousGpaInput = document.getElementById("previous-gpa");
-const previousHoursInput = document.getElementById("previous-hours");
-
-const resultCards = document.querySelectorAll(".result-card strong");
-
-let courseCount = 1;
+/* =========================================
+   WIJHA | وِجهة
+   GPA Calculator
+========================================= */
 
 
-/* =========================
+/* =========================================
+   GPA Scales
+========================================= */
+
+const GPA_SCALES = {
+
+    5: [
+        { label: "A+", value: 5.00 },
+        { label: "A",  value: 4.75 },
+        { label: "B+", value: 4.50 },
+        { label: "B",  value: 4.00 },
+        { label: "C+", value: 3.50 },
+        { label: "C",  value: 3.00 },
+        { label: "D+", value: 2.50 },
+        { label: "D",  value: 2.00 },
+        { label: "F",  value: 1.00 }
+    ],
+
+    4: [
+        { label: "A+", value: 4.00 },
+        { label: "A",  value: 3.75 },
+        { label: "B+", value: 3.50 },
+        { label: "B",  value: 3.00 },
+        { label: "C+", value: 2.50 },
+        { label: "C",  value: 2.00 },
+        { label: "D+", value: 1.50 },
+        { label: "D",  value: 1.00 },
+        { label: "F",  value: 0.00 }
+    ]
+
+};
+
+
+/* =========================================
+   Elements
+========================================= */
+
+const coursesList =
+    document.querySelector(".courses-list");
+
+const addCourseButton =
+    document.querySelector(".add-course-button");
+
+const calculateButton =
+    document.querySelector(".calculate-gpa-button");
+
+const previousGpaInput =
+    document.getElementById("previous-gpa");
+
+const previousHoursInput =
+    document.getElementById("previous-hours");
+
+const previousGpaScaleText =
+    document.getElementById("previous-gpa-scale");
+
+const scaleInputs =
+    document.querySelectorAll('input[name="gpa-scale"]');
+
+const scaleOptions =
+    document.querySelectorAll(".scale-option");
+
+const resultCards =
+    document.querySelectorAll(".result-card strong");
+
+const resultScaleTexts =
+    document.querySelectorAll(".result-card small");
+
+
+let currentScale = 5;
+
+
+/* =========================================
+   Grade Options
+========================================= */
+
+function buildGradeOptions(selectElement) {
+
+    if (!selectElement) {
+        return;
+    }
+
+    selectElement.innerHTML =
+        '<option value="">اختر</option>';
+
+
+    GPA_SCALES[currentScale].forEach((grade) => {
+
+        const option =
+            document.createElement("option");
+
+        option.value =
+            grade.value;
+
+        option.textContent =
+            grade.label;
+
+        selectElement.appendChild(option);
+
+    });
+
+}
+
+
+/* تحديث جميع قوائم التقدير */
+
+function updateAllGradeSelects() {
+
+    const gradeSelects =
+        document.querySelectorAll(".course-grade");
+
+    gradeSelects.forEach((select) => {
+        buildGradeOptions(select);
+    });
+
+}
+
+
+/* =========================================
+   Change GPA Scale
+========================================= */
+
+function changeScale(newScale) {
+
+    currentScale =
+        Number(newScale);
+
+
+    /* تحديث الشكل */
+
+    scaleOptions.forEach((option) => {
+
+        const radio =
+            option.querySelector('input[name="gpa-scale"]');
+
+        if (Number(radio.value) === currentScale) {
+
+            option.classList.add("active");
+
+        } else {
+
+            option.classList.remove("active");
+
+        }
+
+    });
+
+
+    /* تحديث المعدل السابق */
+
+    previousGpaInput.max =
+        currentScale;
+
+    previousGpaInput.placeholder =
+        currentScale === 5
+            ? "مثال: 4.25"
+            : "مثال: 3.25";
+
+
+    if (previousGpaScaleText) {
+
+        previousGpaScaleText.textContent =
+            `من ${currentScale.toFixed(2)}`;
+
+    }
+
+
+    /* تحديث التقديرات */
+
+    updateAllGradeSelects();
+
+
+    /* تحديث نتائج الحاسبة */
+
+    if (resultCards.length >= 3) {
+
+        resultCards[0].textContent = "—";
+        resultCards[1].textContent = "—";
+        resultCards[2].textContent = "—";
+
+    }
+
+
+    /* تحديث النص تحت النتائج */
+
+    if (resultScaleTexts.length >= 2) {
+
+        resultScaleTexts[0].textContent =
+            `من ${currentScale.toFixed(2)}`;
+
+        resultScaleTexts[1].textContent =
+            `من ${currentScale.toFixed(2)}`;
+
+    }
+
+}
+
+
+/* الاستماع لاختيار النظام */
+
+scaleInputs.forEach((input) => {
+
+    input.addEventListener("change", function () {
+
+        changeScale(this.value);
+
+    });
+
+});
+
+
+/* =========================================
    Create Course Row
-========================= */
+========================================= */
 
 function createCourseRow() {
-    courseCount++;
 
-    const row = document.createElement("div");
-    row.className = "course-row";
+    const rows =
+        document.querySelectorAll(".course-row");
+
+    const courseNumber =
+        rows.length + 1;
+
+
+    const row =
+        document.createElement("div");
+
+    row.className =
+        "course-row";
+
 
     row.innerHTML = `
+
         <div class="course-number">
-            ${courseCount}
+            ${courseNumber}
         </div>
+
 
         <div class="course-fields">
 
@@ -44,6 +256,7 @@ function createCourseRow() {
 
             </div>
 
+
             <div class="form-group">
 
                 <label>
@@ -51,15 +264,21 @@ function createCourseRow() {
                 </label>
 
                 <select class="course-hours">
-                    <option value="">اختر</option>
+
+                    <option value="">
+                        اختر
+                    </option>
+
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
+
                 </select>
 
             </div>
+
 
             <div class="form-group">
 
@@ -68,52 +287,12 @@ function createCourseRow() {
                 </label>
 
                 <select class="course-grade">
-
-                    <option value="">
-                        اختر
-                    </option>
-
-                    <option value="5">
-                        A+
-                    </option>
-
-                    <option value="4.75">
-                        A
-                    </option>
-
-                    <option value="4.5">
-                        B+
-                    </option>
-
-                    <option value="4">
-                        B
-                    </option>
-
-                    <option value="3.5">
-                        C+
-                    </option>
-
-                    <option value="3">
-                        C
-                    </option>
-
-                    <option value="2.5">
-                        D+
-                    </option>
-
-                    <option value="2">
-                        D
-                    </option>
-
-                    <option value="1">
-                        F
-                    </option>
-
                 </select>
 
             </div>
 
         </div>
+
 
         <button
             type="button"
@@ -122,175 +301,293 @@ function createCourseRow() {
         >
             ×
         </button>
+
     `;
+
 
     coursesList.appendChild(row);
 
+
+    /* تعبئة درجات النظام الحالي */
+
+    const newGradeSelect =
+        row.querySelector(".course-grade");
+
+    buildGradeOptions(newGradeSelect);
+
+
     renumberCourses();
+
 }
 
 
-/* =========================
+/* =========================================
    Renumber Courses
-========================= */
+========================================= */
 
 function renumberCourses() {
-    const rows = document.querySelectorAll(".course-row");
+
+    const rows =
+        document.querySelectorAll(".course-row");
+
 
     rows.forEach((row, index) => {
-        const number = row.querySelector(".course-number");
+
+        const number =
+            row.querySelector(".course-number");
 
         if (number) {
-            number.textContent = index + 1;
+            number.textContent =
+                index + 1;
         }
+
     });
 
-    courseCount = rows.length;
 }
 
 
-/* =========================
-   Remove Course
-========================= */
-
-coursesList.addEventListener("click", function (event) {
-    if (!event.target.classList.contains("remove-course-button")) {
-        return;
-    }
-
-    const rows = document.querySelectorAll(".course-row");
-
-    if (rows.length <= 1) {
-        return;
-    }
-
-    event.target.closest(".course-row").remove();
-
-    renumberCourses();
-});
-
-
-/* =========================
+/* =========================================
    Add Course
-========================= */
+========================================= */
 
-addCourseButton.addEventListener("click", function () {
-    createCourseRow();
-});
+addCourseButton.addEventListener(
+    "click",
+    function () {
 
+        createCourseRow();
 
-/* =========================
-   Calculate GPA
-========================= */
-
-calculateButton.addEventListener("click", function () {
-
-    const rows = document.querySelectorAll(".course-row");
-
-    let semesterHours = 0;
-    let semesterPoints = 0;
-
-    let hasCompleteCourse = false;
+    }
+);
 
 
-    rows.forEach((row) => {
+/* =========================================
+   Remove Course
+========================================= */
 
-        const hoursSelect =
-            row.querySelector(".course-hours");
-
-        const gradeSelect =
-            row.querySelector(".course-grade");
-
-
-        if (!hoursSelect || !gradeSelect) {
-            return;
-        }
-
-
-        const hours =
-            parseFloat(hoursSelect.value);
-
-        const grade =
-            parseFloat(gradeSelect.value);
-
+coursesList.addEventListener(
+    "click",
+    function (event) {
 
         if (
-            Number.isNaN(hours) ||
-            Number.isNaN(grade)
+            !event.target.classList.contains(
+                "remove-course-button"
+            )
         ) {
             return;
         }
 
 
-        semesterHours += hours;
-
-        semesterPoints +=
-            hours * grade;
-
-        hasCompleteCourse = true;
-    });
+        const rows =
+            document.querySelectorAll(".course-row");
 
 
-    /* No complete courses */
+        if (rows.length <= 1) {
 
-    if (!hasCompleteCourse || semesterHours === 0) {
+            alert(
+                "يجب أن تبقى مادة واحدة على الأقل."
+            );
 
-        alert(
-            "أضيفي ساعات وتقدير مادة واحدة على الأقل."
-        );
+            return;
+        }
 
-        return;
+
+        event.target
+            .closest(".course-row")
+            .remove();
+
+
+        renumberCourses();
+
     }
+);
 
 
-    /* Semester GPA */
+/* =========================================
+   Calculate GPA
+========================================= */
 
-    const semesterGpa =
-        semesterPoints / semesterHours;
+calculateButton.addEventListener(
+    "click",
+    function () {
 
-
-    /* Previous data */
-
-    const previousGpa =
-        parseFloat(previousGpaInput.value);
-
-    const previousHours =
-        parseFloat(previousHoursInput.value);
+        const rows =
+            document.querySelectorAll(".course-row");
 
 
-    let cumulativeGpa = semesterGpa;
+        let semesterHours = 0;
+        let semesterPoints = 0;
+
+        let completeCourses = 0;
 
 
-    const hasPreviousData =
-        !Number.isNaN(previousGpa) &&
-        !Number.isNaN(previousHours) &&
-        previousHours > 0;
+        /* حساب مواد الفصل */
+
+        rows.forEach((row) => {
+
+            const hoursSelect =
+                row.querySelector(".course-hours");
+
+            const gradeSelect =
+                row.querySelector(".course-grade");
 
 
-    if (hasPreviousData) {
+            const hours =
+                parseFloat(hoursSelect.value);
 
-        const previousPoints =
-            previousGpa * previousHours;
+            const grade =
+                parseFloat(gradeSelect.value);
 
-        const totalPoints =
-            previousPoints + semesterPoints;
 
-        const totalHours =
-            previousHours + semesterHours;
+            if (
+                Number.isNaN(hours) ||
+                Number.isNaN(grade)
+            ) {
+                return;
+            }
 
-        cumulativeGpa =
-            totalPoints / totalHours;
+
+            semesterHours +=
+                hours;
+
+            semesterPoints +=
+                hours * grade;
+
+            completeCourses++;
+
+        });
+
+
+        /* لا توجد مواد مكتملة */
+
+        if (
+            completeCourses === 0 ||
+            semesterHours === 0
+        ) {
+
+            alert(
+                "أضيفي ساعات وتقدير مادة واحدة على الأقل."
+            );
+
+            return;
+
+        }
+
+
+        /* المعدل الفصلي */
+
+        const semesterGpa =
+            semesterPoints / semesterHours;
+
+
+        /* البيانات السابقة */
+
+        const previousGpaValue =
+            previousGpaInput.value.trim();
+
+        const previousHoursValue =
+            previousHoursInput.value.trim();
+
+
+        let cumulativeGpa =
+            semesterGpa;
+
+
+        /* إذا تم إدخال إحدى القيم السابقة فقط */
+
+        if (
+            (previousGpaValue && !previousHoursValue) ||
+            (!previousGpaValue && previousHoursValue)
+        ) {
+
+            alert(
+                "إذا كنتِ تريدين حساب المعدل التراكمي، أدخلي المعدل السابق والساعات السابقة معًا."
+            );
+
+            return;
+
+        }
+
+
+        /* حساب المعدل التراكمي */
+
+        if (
+            previousGpaValue &&
+            previousHoursValue
+        ) {
+
+            const previousGpa =
+                parseFloat(previousGpaValue);
+
+            const previousHours =
+                parseFloat(previousHoursValue);
+
+
+            if (
+                Number.isNaN(previousGpa) ||
+                previousGpa < 0 ||
+                previousGpa > currentScale
+            ) {
+
+                alert(
+                    `المعدل السابق يجب أن يكون بين 0 و ${currentScale.toFixed(2)}.`
+                );
+
+                return;
+
+            }
+
+
+            if (
+                Number.isNaN(previousHours) ||
+                previousHours <= 0
+            ) {
+
+                alert(
+                    "أدخلي عدد الساعات السابقة بشكل صحيح."
+                );
+
+                return;
+
+            }
+
+
+            const previousPoints =
+                previousGpa * previousHours;
+
+
+            const totalPoints =
+                previousPoints + semesterPoints;
+
+
+            const totalHours =
+                previousHours + semesterHours;
+
+
+            cumulativeGpa =
+                totalPoints / totalHours;
+
+        }
+
+
+        /* =========================================
+           Results
+        ========================================= */
+
+        resultCards[0].textContent =
+            semesterGpa.toFixed(2);
+
+        resultCards[1].textContent =
+            cumulativeGpa.toFixed(2);
+
+        resultCards[2].textContent =
+            semesterHours;
+
     }
+);
 
 
-    /* Output */
+/* =========================================
+   Initial State
+========================================= */
 
-    resultCards[0].textContent =
-        semesterGpa.toFixed(2);
-
-    resultCards[1].textContent =
-        cumulativeGpa.toFixed(2);
-
-    resultCards[2].textContent =
-        semesterHours;
-});
+changeScale(5);
