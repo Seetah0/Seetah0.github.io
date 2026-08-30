@@ -12,10 +12,6 @@
 
 <body>
 
-    <!-- =========================
-         Top Bar
-    ========================== -->
-
     <header class="top-bar">
 
         <div class="brand">
@@ -32,10 +28,6 @@
 
 
     <main>
-
-        <!-- =========================
-             Introduction
-        ========================== -->
 
         <section class="page-intro">
 
@@ -55,11 +47,10 @@
         </section>
 
 
-        <!-- =========================
-             Previous GPA
-        ========================== -->
-
         <section class="gpa-calculator">
+
+
+            <!-- البيانات السابقة -->
 
             <div class="calculator-section">
 
@@ -125,9 +116,7 @@
             </div>
 
 
-            <!-- =========================
-                 Current Courses
-            ========================== -->
+            <!-- مواد الفصل -->
 
             <div class="calculator-section">
 
@@ -139,7 +128,7 @@
                     </div>
 
                     <p>
-                        أضيفي كل مادة مع عدد ساعاتها والدرجة المتوقعة.
+                        أضيفي كل مادة مع عدد ساعاتها والتقدير المتوقع.
                     </p>
 
                 </div>
@@ -147,11 +136,14 @@
 
                 <div class="courses-list">
 
+                    <!-- المادة الأولى -->
+
                     <div class="course-row">
 
                         <div class="course-number">
                             1
                         </div>
+
 
                         <div class="course-fields">
 
@@ -176,12 +168,17 @@
                                 </label>
 
                                 <select class="course-hours">
-                                    <option value="">اختر</option>
+
+                                    <option value="">
+                                        اختر
+                                    </option>
+
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
+
                                 </select>
 
                             </div>
@@ -246,7 +243,10 @@
                 </div>
 
 
-                <button class="add-course-button" type="button">
+                <button
+                    class="add-course-button"
+                    type="button"
+                >
                     <span>＋</span>
                     إضافة مادة أخرى
                 </button>
@@ -254,18 +254,17 @@
             </div>
 
 
-            <!-- =========================
-                 Calculate
-            ========================== -->
+            <!-- زر الحساب -->
 
-            <button class="calculate-gpa-button" type="button">
+            <button
+                class="calculate-gpa-button"
+                type="button"
+            >
                 احسب المعدل
             </button>
 
 
-            <!-- =========================
-                 Results
-            ========================== -->
+            <!-- النتائج -->
 
             <section class="gpa-results">
 
@@ -333,10 +332,6 @@
         </section>
 
 
-        <!-- =========================
-             Privacy
-        ========================== -->
-
         <section class="privacy-note">
 
             <div class="privacy-icon">
@@ -359,10 +354,6 @@
 
     </main>
 
-
-    <!-- =========================
-         Bottom Navigation
-    ========================== -->
 
     <nav class="bottom-nav" aria-label="التنقل الرئيسي">
 
@@ -392,7 +383,10 @@
         </a>
 
     </nav>
-<script src="js/gpa.js?v=1"></script>
+
+
+    <script src="js/gpa.js?v=2"></script>
+
 </body>
 
 </html>
