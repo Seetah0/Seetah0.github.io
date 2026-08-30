@@ -23,14 +23,19 @@ const weightedScoreResult =
 const weightedScoreLabel =
     document.getElementById("weighted-score-label");
 
-const quickWeightButtons =
-    document.querySelectorAll(".quick-weights button");
-
 const letterGradeResult =
     document.getElementById("letter-grade");
 
 const gradeDescription =
     document.getElementById("grade-description");
+
+const quickWeightButtons =
+    document.querySelectorAll(".quick-weights button");
+
+
+/* =========================================
+   Format Number
+========================================= */
 
 function formatNumber(value) {
 
@@ -41,21 +46,97 @@ function formatNumber(value) {
 }
 
 
-/* الأوزان السريعة */
+/* =========================================
+   Letter Grade
+========================================= */
+
+function getLetterGrade(percentage) {
+
+    if (percentage >= 95) {
+        return {
+            grade: "A+",
+            description: "ممتاز مرتفع"
+        };
+    }
+
+    if (percentage >= 90) {
+        return {
+            grade: "A",
+            description: "ممتاز"
+        };
+    }
+
+    if (percentage >= 85) {
+        return {
+            grade: "B+",
+            description: "جيد جدًا مرتفع"
+        };
+    }
+
+    if (percentage >= 80) {
+        return {
+            grade: "B",
+            description: "جيد جدًا"
+        };
+    }
+
+    if (percentage >= 75) {
+        return {
+            grade: "C+",
+            description: "جيد مرتفع"
+        };
+    }
+
+    if (percentage >= 70) {
+        return {
+            grade: "C",
+            description: "جيد"
+        };
+    }
+
+    if (percentage >= 65) {
+        return {
+            grade: "D+",
+            description: "مقبول مرتفع"
+        };
+    }
+
+    if (percentage >= 60) {
+        return {
+            grade: "D",
+            description: "مقبول"
+        };
+    }
+
+    return {
+        grade: "F",
+        description: "راسب"
+    };
+}
+
+
+/* =========================================
+   Quick Weights
+========================================= */
 
 quickWeightButtons.forEach((button) => {
 
-    button.addEventListener("click", function () {
+    button.addEventListener(
+        "click",
+        function () {
 
-        weightInput.value =
-            this.dataset.weight;
+            weightInput.value =
+                this.dataset.weight;
 
-    });
+        }
+    );
 
 });
 
 
-/* الحساب */
+/* =========================================
+   Calculate
+========================================= */
 
 calculateButton.addEventListener(
     "click",
@@ -70,6 +151,8 @@ calculateButton.addEventListener(
         const weight =
             parseFloat(weightInput.value);
 
+
+        /* Validation */
 
         if (
             Number.isNaN(score) ||
@@ -121,6 +204,8 @@ calculateButton.addEventListener(
         }
 
 
+        /* Calculations */
+
         const scorePercentage =
             (score / maxScore) * 100;
 
@@ -129,7 +214,11 @@ calculateButton.addEventListener(
             (score / maxScore) * weight;
 
 
+        const gradeData =
+            getLetterGrade(scorePercentage);
 
+
+        /* Results */
 
         percentageResult.textContent =
             formatNumber(scorePercentage);
@@ -143,6 +232,12 @@ calculateButton.addEventListener(
             `من ${formatNumber(weight)}`;
 
 
+        letterGradeResult.textContent =
+            gradeData.grade;
+
+
+        gradeDescription.textContent =
+            gradeData.description;
 
     }
 );
