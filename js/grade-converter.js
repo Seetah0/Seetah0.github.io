@@ -23,12 +23,14 @@ const weightedScoreResult =
 const weightedScoreLabel =
     document.getElementById("weighted-score-label");
 
-const lostScoreResult =
-    document.getElementById("lost-score");
-
 const quickWeightButtons =
     document.querySelectorAll(".quick-weights button");
 
+const letterGradeResult =
+    document.getElementById("letter-grade");
+
+const gradeDescription =
+    document.getElementById("grade-description");
 
 function formatNumber(value) {
 
@@ -127,8 +129,6 @@ calculateButton.addEventListener(
             (score / maxScore) * weight;
 
 
-        const lostScore =
-            weight - weightedScore;
 
 
         percentageResult.textContent =
@@ -143,8 +143,6 @@ calculateButton.addEventListener(
             `من ${formatNumber(weight)}`;
 
 
-        lostScoreResult.textContent =
-            formatNumber(lostScore);
 
     }
 );
