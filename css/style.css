@@ -146,3 +146,49 @@ h1 {
         font-size: 17px;
     }
 }
+/* =========================
+   Home Intro
+========================= */
+
+.home-intro {
+    width: calc(100% - 32px);
+    max-width: 1100px;
+
+    margin: 34px auto 24px;
+
+    text-align: right;
+}
+
+.home-eyebrow {
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: 600;
+
+    margin-bottom: 2px;
+}
+
+.home-intro h1 {
+    color: var(--navy);
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .home-intro {
+        width: calc(100% - 32px);
+        margin: 30px auto 22px;
+    }
+
+    .home-eyebrow {
+        font-size: 15px;
+    }
+
+    .home-intro h1 {
+        font-size: 36px;
+    }
+}
