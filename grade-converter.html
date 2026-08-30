@@ -1,275 +1,243 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+/* =========================================
+   WIJHA | Grade Converter
+========================================= */
+
+const scoreInput =
+    document.getElementById("score");
+
+const maxScoreInput =
+    document.getElementById("max-score");
+
+const weightInput =
+    document.getElementById("weight");
+
+const calculateButton =
+    document.getElementById("calculate-grade");
+
+const percentageResult =
+    document.getElementById("score-percentage");
+
+const weightedScoreResult =
+    document.getElementById("weighted-score");
+
+const weightedScoreLabel =
+    document.getElementById("weighted-score-label");
+
+const letterGradeResult =
+    document.getElementById("letter-grade");
+
+const gradeDescription =
+    document.getElementById("grade-description");
+
+const quickWeightButtons =
+    document.querySelectorAll(".quick-weights button");
+
+
+/* =========================================
+   Format Number
+========================================= */
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+function formatNumber(value) {
 
-    <link rel="stylesheet" href="css/style.css?v=17">
+    return value
+        .toFixed(2)
+        .replace(/0+$/, "")
+        .replace(/\.$/, "");
+}
 
-    <title>محول الدرجات | وِجهة</title>
-</head>
 
-<body>
+/* =========================================
+   Letter Grade
+========================================= */
 
-    <header class="top-bar">
+function getLetterGrade(percentage) {
 
-        <div class="brand">
-            <img src="assets/images/wijha-logo.jpg" alt="شعار وِجهة">
-            <span>محول الدرجات</span>
-        </div>
+    if (percentage >= 95) {
+        return {
+            grade: "A+",
+            description: "ممتاز مرتفع"
+        };
+    }
 
-        <div class="top-actions">
-            <button aria-label="الإشعارات">🔔</button>
-            <button aria-label="الوضع الليلي">🌙</button>
-        </div>
+    if (percentage >= 90) {
+        return {
+            grade: "A",
+            description: "ممتاز"
+        };
+    }
 
-    </header>
+    if (percentage >= 85) {
+        return {
+            grade: "B+",
+            description: "جيد جدًا مرتفع"
+        };
+    }
 
+    if (percentage >= 80) {
+        return {
+            grade: "B",
+            description: "جيد جدًا"
+        };
+    }
 
-    <main>
+    if (percentage >= 75) {
+        return {
+            grade: "C+",
+            description: "جيد مرتفع"
+        };
+    }
 
-        <section class="page-intro">
+    if (percentage >= 70) {
+        return {
+            grade: "C",
+            description: "جيد"
+        };
+    }
 
-            <p class="page-eyebrow">
-                الأدوات الأكاديمية
-            </p>
+    if (percentage >= 65) {
+        return {
+            grade: "D+",
+            description: "مقبول مرتفع"
+        };
+    }
 
-            <h1>
-                محول الدرجات
-            </h1>
+    if (percentage >= 60) {
+        return {
+            grade: "D",
+            description: "مقبول"
+        };
+    }
 
-            <p class="page-description">
-                حوّل درجتك في الاختبار أو الواجب إلى وزنها الفعلي من الدرجة النهائية للمقرر.
-            </p>
+    return {
+        grade: "F",
+        description: "راسب"
+    };
+}
 
-        </section>
 
+/* =========================================
+   Quick Weights
+========================================= */
 
-        <section class="grade-converter">
+quickWeightButtons.forEach((button) => {
 
-            <div class="calculator-section">
+    button.addEventListener(
+        "click",
+        function () {
 
-                <div class="calculator-heading">
+            weightInput.value =
+                this.dataset.weight;
 
-                    <div>
-                        <span class="calculator-step">01</span>
-                        <h2>بيانات الدرجة</h2>
-                    </div>
+        }
+    );
 
-                    <p>
-                        أدخل درجتك والدرجة الكاملة ثم وزن التقييم.
-                    </p>
+});
 
-                </div>
 
+/* =========================================
+   Calculate
+========================================= */
 
-                <div class="form-grid">
+calculateButton.addEventListener(
+    "click",
+    function () {
 
-                    <div class="form-group">
+        const score =
+            parseFloat(scoreInput.value);
 
-                        <label for="score">
-                            درجتك
-                        </label>
+        const maxScore =
+            parseFloat(maxScoreInput.value);
 
-                        <input
-                            type="number"
-                            id="score"
-                            min="0"
-                            step="0.01"
-                            placeholder="مثال: 42"
-                        >
+        const weight =
+            parseFloat(weightInput.value);
 
-                    </div>
 
+        /* Validation */
 
-                    <div class="form-group">
+        if (
+            Number.isNaN(score) ||
+            score < 0
+        ) {
 
-                        <label for="max-score">
-                            الدرجة الكاملة
-                        </label>
+            alert(
+                "أدخلي درجتك بشكل صحيح."
+            );
 
-                        <input
-                            type="number"
-                            id="max-score"
-                            min="0.01"
-                            step="0.01"
-                            placeholder="مثال: 50"
-                        >
+            return;
+        }
 
-                    </div>
 
+        if (
+            Number.isNaN(maxScore) ||
+            maxScore <= 0
+        ) {
 
-                    <div class="form-group">
+            alert(
+                "أدخلي الدرجة الكاملة بشكل صحيح."
+            );
 
-                        <label for="weight">
-                            وزن التقييم من الدرجة النهائية
-                        </label>
+            return;
+        }
 
-                        <input
-                            type="number"
-                            id="weight"
-                            min="0"
-                            max="100"
-                            step="0.01"
-                            placeholder="مثال: 20"
-                        >
 
-                        <small>
-                            مثال: اختبار يمثل 20% من المقرر
-                        </small>
+        if (score > maxScore) {
 
-                    </div>
+            alert(
+                "درجتك لا يمكن أن تكون أكبر من الدرجة الكاملة."
+            );
 
-                </div>
+            return;
+        }
 
-            </div>
 
+        if (
+            Number.isNaN(weight) ||
+            weight <= 0 ||
+            weight > 100
+        ) {
 
-            <div class="quick-weights">
+            alert(
+                "أدخلي وزن التقييم بين 0 و100."
+            );
 
-                <span>أوزان سريعة:</span>
+            return;
+        }
 
-                <button type="button" data-weight="5">5%</button>
-                <button type="button" data-weight="10">10%</button>
-                <button type="button" data-weight="15">15%</button>
-                <button type="button" data-weight="20">20%</button>
-                <button type="button" data-weight="30">30%</button>
-                <button type="button" data-weight="40">40%</button>
-                <button type="button" data-weight="60">60%</button>
 
-            </div>
+        /* Calculations */
 
+        const scorePercentage =
+            (score / maxScore) * 100;
 
-            <button
-                class="calculate-gpa-button"
-                id="calculate-grade"
-                type="button"
-            >
-                احسب الدرجة
-            </button>
 
+        const weightedScore =
+            (score / maxScore) * weight;
 
-            <section class="gpa-results">
 
-                <div class="result-heading">
-                    النتيجة
-                </div>
+        const gradeData =
+            getLetterGrade(scorePercentage);
 
-                <div class="results-grid">
 
-                    <div class="result-card">
+        /* Results */
 
-                        <span>
-                            نسبتك في التقييم
-                        </span>
+        percentageResult.textContent =
+            formatNumber(scorePercentage);
 
-                        <strong id="score-percentage">
-                            —
-                        </strong>
 
-                        <small>
-                            %
-                        </small>
+        weightedScoreResult.textContent =
+            formatNumber(weightedScore);
 
-                    </div>
 
+        weightedScoreLabel.textContent =
+            `من ${formatNumber(weight)}`;
 
-                    <div class="result-card">
 
-                        <span>
-                            الدرجة المحسوبة
-                        </span>
+        letterGradeResult.textContent =
+            gradeData.grade;
 
-                        <strong id="weighted-score">
-                            —
-                        </strong>
 
-                        <small id="weighted-score-label">
-                            من —
-                        </small>
+        gradeDescription.textContent =
+            gradeData.description;
 
-                    </div>
-
-
-                    <div class="result-card">
-
-    <span>
-        التقدير
-    </span>
-
-    <strong id="letter-grade">
-        —
-    </strong>
-
-    <small id="grade-description">
-        حسب نسبة الدرجة
-    </small>
-
-</div>
-
-                </div>
-
-            </section>
-
-
-            <section class="privacy-note">
-
-                <div class="privacy-icon">
-                    🔒
-                </div>
-
-                <div>
-
-                    <h3>
-                        حساب مباشر
-                    </h3>
-
-                    <p>
-                        لا يتم حفظ الدرجة أو إرسالها إلى أي خادم.
-                    </p>
-
-                </div>
-
-            </section>
-
-        </section>
-
-    </main>
-
-
-    <nav class="bottom-nav" aria-label="التنقل الرئيسي">
-
-        <a href="index.html" class="bottom-nav-item">
-            <span class="bottom-nav-icon">⌂</span>
-            <span class="bottom-nav-label">الرئيسية</span>
-        </a>
-
-        <a href="tools.html" class="bottom-nav-item active">
-            <span class="bottom-nav-icon">▦</span>
-            <span class="bottom-nav-label">الأدوات</span>
-        </a>
-
-        <a href="services.html" class="bottom-nav-item">
-            <span class="bottom-nav-icon">◇</span>
-            <span class="bottom-nav-label">الخدمات</span>
-        </a>
-
-        <a href="library.html" class="bottom-nav-item">
-            <span class="bottom-nav-icon">▤</span>
-            <span class="bottom-nav-label">المكتبة</span>
-        </a>
-
-        <a href="news.html" class="bottom-nav-item">
-            <span class="bottom-nav-icon">▱</span>
-            <span class="bottom-nav-label">الأخبار</span>
-        </a>
-
-    </nav>
-
-
-    <script src="js/grade-converter.js?v=1"></script>
-
-</body>
-
-</html>
+    }
+);
