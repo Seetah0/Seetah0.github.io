@@ -1,11 +1,438 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وِجهة | WIJHA</title>
+
+    <link rel="stylesheet" href="css/style.css?v=35">
+
+    <title>الأخبار والفعاليات | وِجهة</title>
 </head>
+
 <body>
-    <h1>الأدوات الأكاديمية</h1>
+
+<header class="top-bar">
+
+    <div class="brand">
+        <img src="assets/images/wijha-logo.jpg" alt="شعار وِجهة">
+        <span>الأخبار والفعاليات</span>
+    </div>
+
+    <div class="top-actions">
+        <button aria-label="الإشعارات">🔔</button>
+        <button aria-label="الوضع الليلي">🌙</button>
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- Intro -->
+
+    <section class="page-intro">
+
+        <p class="page-eyebrow">
+            ابقَ على اطلاع
+        </p>
+
+        <h1>
+            الأخبار والفعاليات
+        </h1>
+
+        <p class="page-description">
+            آخر الأخبار والفعاليات والإعلانات التي تهم طلبة جامعة الإمام عبدالرحمن بن فيصل.
+        </p>
+
+    </section>
+
+
+    <!-- Main Tabs -->
+
+    <section class="news-tabs-wrapper">
+
+        <div class="news-tabs">
+
+            <button
+                type="button"
+                class="news-tab active"
+                data-news-tab="news"
+            >
+                <span>📰</span>
+                الأخبار
+            </button>
+
+            <button
+                type="button"
+                class="news-tab"
+                data-news-tab="events"
+            >
+                <span>📅</span>
+                الفعاليات
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="news-page-content">
+
+
+        <!-- =====================================
+             NEWS
+        ====================================== -->
+
+        <section
+            class="news-panel"
+            id="news-panel"
+        >
+
+            <div class="news-section-heading">
+
+                <div>
+                    <h2>آخر الأخبار</h2>
+
+                    <p>
+                        الأخبار والإعلانات المنشورة من المصادر الرسمية للجامعة.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Filters -->
+
+            <div class="news-filters">
+
+                <button
+                    type="button"
+                    class="news-filter active"
+                    data-filter="all"
+                >
+                    الكل
+                </button>
+
+                <button
+                    type="button"
+                    class="news-filter"
+                    data-filter="academic"
+                >
+                    أكاديمي
+                </button>
+
+                <button
+                    type="button"
+                    class="news-filter"
+                    data-filter="student"
+                >
+                    طلابي
+                </button>
+
+                <button
+                    type="button"
+                    class="news-filter"
+                    data-filter="opportunity"
+                >
+                    تدريب وفرص
+                </button>
+
+                <button
+                    type="button"
+                    class="news-filter"
+                    data-filter="event"
+                >
+                    فعاليات
+                </button>
+
+            </div>
+
+
+            <!--
+                بيانات تجريبية مؤقتة للتصميم فقط.
+                سنستبدلها لاحقًا بأخبار IAU الرسمية.
+            -->
+
+            <div class="news-cards-grid">
+
+
+                <!-- Test News 1 -->
+
+                <article
+                    class="wijha-news-card"
+                    data-category="academic"
+                >
+
+                    <div class="news-image-placeholder">
+                        <span>📰</span>
+                        <small>صورة الخبر</small>
+                    </div>
+
+                    <div class="wijha-news-content">
+
+                        <div class="news-card-meta">
+
+                            <span class="news-category">
+                                أكاديمي
+                            </span>
+
+                            <time>
+                                31 أغسطس 2026
+                            </time>
+
+                        </div>
+
+                        <h3>
+                            عنوان خبر أكاديمي تجريبي
+                        </h3>
+
+                        <p>
+                            يظهر هنا وصف مختصر للخبر في سطر أو سطرين فقط قبل الانتقال إلى المصدر الرسمي.
+                        </p>
+
+                        <a
+                            href="#"
+                            class="news-read-link"
+                        >
+                            قراءة الخبر
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Test News 2 -->
+
+                <article
+                    class="wijha-news-card"
+                    data-category="student"
+                >
+
+                    <div class="news-image-placeholder">
+                        <span>🎓</span>
+                        <small>صورة الخبر</small>
+                    </div>
+
+                    <div class="wijha-news-content">
+
+                        <div class="news-card-meta">
+
+                            <span class="news-category">
+                                طلابي
+                            </span>
+
+                            <time>
+                                30 أغسطس 2026
+                            </time>
+
+                        </div>
+
+                        <h3>
+                            عنوان خبر طلابي تجريبي
+                        </h3>
+
+                        <p>
+                            هذه البطاقة موجودة لاختبار شكل الأخبار والفلاتر فقط وليست خبرًا منشورًا من الجامعة.
+                        </p>
+
+                        <a
+                            href="#"
+                            class="news-read-link"
+                        >
+                            قراءة الخبر
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Test News 3 -->
+
+                <article
+                    class="wijha-news-card"
+                    data-category="opportunity"
+                >
+
+                    <div class="news-image-placeholder">
+                        <span>💼</span>
+                        <small>صورة الخبر</small>
+                    </div>
+
+                    <div class="wijha-news-content">
+
+                        <div class="news-card-meta">
+
+                            <span class="news-category">
+                                تدريب وفرص
+                            </span>
+
+                            <time>
+                                29 أغسطس 2026
+                            </time>
+
+                        </div>
+
+                        <h3>
+                            عنوان فرصة تدريبية تجريبية
+                        </h3>
+
+                        <p>
+                            مثال مؤقت لاختبار ظهور الأخبار المصنفة ضمن التدريب والفرص.
+                        </p>
+
+                        <a
+                            href="#"
+                            class="news-read-link"
+                        >
+                            قراءة الخبر
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <div
+                class="news-no-results"
+                id="news-no-results"
+                hidden
+            >
+                <span>🔍</span>
+
+                <h3>لا توجد أخبار في هذا التصنيف</h3>
+
+                <p>
+                    اختر تصنيفًا آخر لعرض الأخبار.
+                </p>
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             EVENTS
+        ====================================== -->
+
+        <section
+            class="news-panel"
+            id="events-panel"
+            hidden
+        >
+
+            <div class="news-section-heading">
+
+                <div>
+                    <h2>الفعاليات القادمة</h2>
+
+                    <p>
+                        يتم ترتيب الفعاليات القادمة تلقائيًا حسب أقرب موعد.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div
+                class="events-list"
+                id="upcoming-events"
+            ></div>
+
+
+            <div
+                class="events-empty"
+                id="upcoming-empty"
+                hidden
+            >
+                <span>📅</span>
+
+                <h3>لا توجد فعاليات قادمة حاليًا</h3>
+
+                <p>
+                    ستظهر الفعاليات الجديدة هنا عند إضافتها.
+                </p>
+            </div>
+
+
+            <div class="past-events-section">
+
+                <div class="news-section-heading">
+
+                    <div>
+                        <h2>الفعاليات السابقة</h2>
+
+                        <p>
+                            الفعاليات التي انتهى موعدها.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="events-list"
+                    id="past-events"
+                ></div>
+
+
+                <div
+                    class="events-empty"
+                    id="past-empty"
+                    hidden
+                >
+                    <span>✓</span>
+
+                    <h3>لا توجد فعاليات سابقة</h3>
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+</main>
+
+
+<nav class="bottom-nav" aria-label="التنقل الرئيسي">
+
+    <a href="index.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">⌂</span>
+        <span class="bottom-nav-label">الرئيسية</span>
+    </a>
+
+    <a href="tools.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">▦</span>
+        <span class="bottom-nav-label">الأدوات</span>
+    </a>
+
+    <a href="services.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">◇</span>
+        <span class="bottom-nav-label">الخدمات</span>
+    </a>
+
+    <a href="library.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">▤</span>
+        <span class="bottom-nav-label">المكتبة</span>
+    </a>
+
+    <a href="news.html" class="bottom-nav-item active">
+        <span class="bottom-nav-icon">▱</span>
+        <span class="bottom-nav-label">الأخبار</span>
+    </a>
+
+</nav>
+
+
+<script src="js/news.js?v=1"></script>
+
 </body>
 </html>
