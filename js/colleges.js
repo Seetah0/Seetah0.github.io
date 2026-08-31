@@ -66,39 +66,45 @@ programTabs.forEach(function (tab) {
 /* =========================================
    College Expand / Collapse
 ========================================= */
-
 document
     .querySelectorAll(".college-toggle")
     .forEach(function (button) {
 
-        button.addEventListener(
-            "click",
-            function () {
+        button.addEventListener("click", function () {
 
-                const group =
-                    this.closest(".college-group");
+            const group =
+                this.closest(".college-group");
 
-                const programs =
-                    group.querySelector(".college-programs");
+            const programs =
+                group.querySelector(".college-programs");
 
-                const isOpen =
-                    this.getAttribute("aria-expanded") === "true";
+            const isOpen =
+                this.getAttribute("aria-expanded") === "true";
 
+
+            if (isOpen) {
 
                 this.setAttribute(
                     "aria-expanded",
-                    String(!isOpen)
+                    "false"
                 );
 
+                programs.style.display = "none";
 
-                programs.hidden =
-                    isOpen;
+            } else {
+
+                this.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+                programs.style.display = "grid";
 
             }
-        );
+
+        });
 
     });
-
 
 /* =========================================
    Search
