@@ -3116,3 +3116,225 @@ body {
     }
 
 }
+/* =========================================
+   WIJHA | Library Tabs
+========================================= */
+
+.library-tabs-wrapper {
+    width: calc(100% - 32px);
+    max-width: 1100px;
+
+    margin: 0 auto 28px;
+}
+
+.library-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 8px;
+
+    padding: 6px;
+
+    background: #EEF1F5;
+
+    border-radius: 20px;
+}
+
+.library-tab {
+    min-height: 52px;
+
+    padding: 10px 16px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: transparent;
+    color: var(--text-secondary);
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+}
+
+.library-tab.active {
+    background: var(--navy);
+    color: var(--white);
+
+    box-shadow: 0 5px 15px rgba(11, 31, 58, 0.15);
+}
+
+
+/* =========================================
+   Library Panels
+========================================= */
+
+.library-panel[hidden] {
+    display: none;
+}
+
+.library-section-heading {
+    margin-bottom: 18px;
+}
+
+.library-section-heading h2 {
+    color: var(--navy);
+
+    font-size: 23px;
+    font-weight: 800;
+
+    margin-bottom: 5px;
+}
+
+.library-section-heading p {
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   FAQ
+========================================= */
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.faq-item {
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 17px;
+
+    overflow: hidden;
+}
+
+.faq-item summary {
+    position: relative;
+
+    min-height: 64px;
+
+    padding: 18px 20px 18px 52px;
+
+    color: var(--navy);
+
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: "+";
+
+    position: absolute;
+
+    left: 19px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #EEF3F8;
+    color: var(--navy);
+
+    border-radius: 9px;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.faq-item[open] summary::after {
+    content: "−";
+}
+
+.faq-item p {
+    padding: 0 20px 19px;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+
+/* Privacy FAQ */
+
+.faq-privacy {
+    border-color: #C8D4E2;
+    background: #F7F9FC;
+}
+
+.faq-privacy summary {
+    color: var(--navy);
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .library-tabs-wrapper {
+        margin-bottom: 22px;
+    }
+
+    .library-tabs {
+        border-radius: 17px;
+    }
+
+    .library-tab {
+        min-height: 48px;
+
+        padding: 8px 10px;
+
+        border-radius: 13px;
+
+        font-size: 12px;
+    }
+
+    .library-section-heading h2 {
+        font-size: 20px;
+    }
+
+    .faq-item summary {
+        padding: 17px 16px 17px 48px;
+
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .faq-item summary::after {
+        left: 15px;
+    }
+
+    .faq-item p {
+        padding: 0 16px 17px;
+
+        font-size: 12px;
+    }
+
+}
