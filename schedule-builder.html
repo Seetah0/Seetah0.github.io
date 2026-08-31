@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/style.css?v=20">
+    <link rel="stylesheet" href="css/style.css?v=25">
 
     <title>مصمم الجدول | وِجهة</title>
 </head>
@@ -40,13 +40,15 @@
             </h1>
 
             <p class="page-description">
-                أضف موادك ومواعيدها، ثم أنشئ جدولًا أسبوعيًا مرتبًا يمكنك طباعته أو حفظه لاحقًا.
+                أضف موادك ومواعيدها، ثم أنشئ جدولًا أسبوعيًا مرتبًا يمكنك طباعته أو حفظه PDF.
             </p>
 
         </section>
 
 
         <section class="schedule-builder">
+
+            <!-- إضافة مادة -->
 
             <div class="calculator-section">
 
@@ -174,6 +176,8 @@
             </div>
 
 
+            <!-- الجدول -->
+
             <div class="calculator-section">
 
                 <div class="calculator-heading">
@@ -190,23 +194,51 @@
                 </div>
 
 
-                <div class="schedule-preview">
+                <div class="print-area">
 
-                    <div class="schedule-empty">
+                    <div class="print-only-title">
+                        <h1>جدولي الأسبوعي</h1>
+                        <p>وِجهة | WIJHA</p>
+                    </div>
 
-                        <div class="schedule-empty-icon">
-                            🗓️
+
+                    <div class="schedule-preview">
+
+                        <div class="schedule-empty">
+
+                            <div class="schedule-empty-icon">
+                                🗓️
+                            </div>
+
+                            <h3>
+                                جدولك فارغ حاليًا
+                            </h3>
+
+                            <p>
+                                أضف أول مادة من الأعلى لتبدأ بتصميم جدولك.
+                            </p>
+
                         </div>
 
-                        <h3>
-                            جدولك فارغ حاليًا
-                        </h3>
-
-                        <p>
-                            أضف أول مادة من الأعلى لتبدأ بتصميم جدولك.
-                        </p>
-
                     </div>
+
+                </div>
+
+
+                <div
+                    class="schedule-actions"
+                    id="schedule-actions"
+                    hidden
+                >
+
+                    <button
+                        type="button"
+                        class="print-schedule-button"
+                        id="print-schedule"
+                    >
+                        🖨️
+                        طباعة / حفظ PDF
+                    </button>
 
                 </div>
 
@@ -266,7 +298,10 @@
         </a>
 
     </nav>
-<script src="js/schedule-builder.js?v=2"></script>
+
+
+    <script src="js/schedule-builder.js?v=3"></script>
+
 </body>
 
 </html>
