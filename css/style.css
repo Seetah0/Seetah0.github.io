@@ -60,8 +60,8 @@ body {
 }
 
 .brand img {
-    width: 150px;
-    height: 75px;
+    width: 190px;
+    height: 90px;
     object-fit: contain;
 }
 
@@ -566,9 +566,10 @@ body {
     }
 
     .brand img {
-        width: 145px;
-        height: 65px;
-    }
+    width: 155px;
+    height: 75px;
+    object-fit: contain;
+}
 
     .brand span {
         font-size: 16px;
