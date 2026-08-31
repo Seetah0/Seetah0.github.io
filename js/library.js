@@ -16,32 +16,13 @@ instructionsToggle.addEventListener(
         const isOpen =
             this.getAttribute("aria-expanded") === "true";
 
-
         this.setAttribute(
             "aria-expanded",
             String(!isOpen)
         );
 
-
         instructionsDetails.hidden =
             isOpen;
-
-
-        if (!isOpen) {
-
-            setTimeout(
-                function () {
-
-                    instructionsDetails.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-
-                },
-                100
-            );
-
-        }
 
     }
 );
