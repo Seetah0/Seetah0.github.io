@@ -3338,3 +3338,497 @@ body {
     }
 
 }
+/* =========================================
+   WIJHA | Colleges & Programs
+========================================= */
+
+.program-search-section,
+.program-tabs-wrapper,
+.programs-directory {
+    width: calc(100% - 32px);
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Search */
+
+.program-search-section {
+    margin-bottom: 16px;
+}
+
+.program-search-box {
+    min-height: 58px;
+
+    padding: 0 18px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    box-shadow: 0 5px 18px rgba(11, 31, 58, 0.04);
+}
+
+.program-search-icon {
+    font-size: 18px;
+}
+
+.program-search-box input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-family: inherit;
+    font-size: 16px;
+}
+
+
+/* Program Type Tabs */
+
+.program-tabs-wrapper {
+    margin-bottom: 26px;
+}
+
+.program-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+.program-tab {
+    min-height: 100px;
+
+    padding: 17px;
+
+    background: var(--white);
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 21px;
+
+    font-family: inherit;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    text-align: right;
+    cursor: pointer;
+}
+
+.program-tab > span {
+    width: 50px;
+    height: 50px;
+
+    flex: 0 0 50px;
+
+    background: #EEF3F8;
+
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+.program-tab strong {
+    display: block;
+
+    color: var(--navy);
+
+    font-size: 16px;
+    font-weight: 800;
+
+    margin-bottom: 2px;
+}
+
+.program-tab small {
+    color: var(--text-secondary);
+
+    font-size: 11px;
+}
+
+.program-tab.active {
+    background: var(--navy);
+    border-color: var(--navy);
+}
+
+.program-tab.active strong {
+    color: var(--white);
+}
+
+.program-tab.active small {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.program-tab.active > span {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* Panels */
+
+.program-panel[hidden] {
+    display: none;
+}
+
+.program-section-heading {
+    margin-bottom: 16px;
+}
+
+.program-section-heading h2 {
+    color: var(--navy);
+
+    font-size: 23px;
+    font-weight: 800;
+
+    margin-bottom: 4px;
+}
+
+.program-section-heading p {
+    color: var(--text-secondary);
+
+    font-size: 13px;
+}
+
+
+/* College Group */
+
+.college-group {
+    margin-bottom: 24px;
+}
+
+.college-toggle {
+    width: 100%;
+
+    min-height: 100px;
+
+    padding: 17px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 21px;
+
+    font-family: inherit;
+    text-align: right;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+
+    gap: 14px;
+
+    cursor: pointer;
+}
+
+.college-toggle-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #EEF3F8;
+
+    border-radius: 16px;
+
+    font-size: 22px;
+}
+
+.college-toggle-content span {
+    display: block;
+
+    color: var(--text-secondary);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    margin-bottom: 2px;
+}
+
+.college-toggle-content h3 {
+    color: var(--navy);
+
+    font-size: 17px;
+    font-weight: 800;
+
+    margin-bottom: 2px;
+}
+
+.college-toggle-content p {
+    color: var(--text-secondary);
+
+    font-size: 11px;
+}
+
+.college-toggle-arrow {
+    color: var(--navy);
+
+    font-size: 20px;
+    font-weight: 800;
+
+    transition: transform 0.2s ease;
+}
+
+.college-toggle[aria-expanded="false"]
+.college-toggle-arrow {
+    transform: rotate(-90deg);
+}
+
+
+/* College Programs */
+
+.college-programs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-top: 12px;
+}
+
+
+/* Program Card */
+
+.program-card {
+    padding: 18px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    box-shadow: 0 5px 18px rgba(11, 31, 58, 0.04);
+}
+
+.program-card-main {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+}
+
+.program-icon {
+    width: 48px;
+    height: 48px;
+
+    flex: 0 0 48px;
+
+    background: #EEF3F8;
+    color: var(--navy);
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.program-degree {
+    display: block;
+
+    color: var(--text-secondary);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    margin-bottom: 2px;
+}
+
+.program-card h3 {
+    color: var(--navy);
+
+    font-size: 16px;
+    font-weight: 800;
+
+    margin-bottom: 2px;
+}
+
+.program-card-main p {
+    color: var(--text-secondary);
+
+    font-size: 11px;
+}
+
+
+/* Program Actions */
+
+.program-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 7px;
+}
+
+.program-button {
+    min-height: 43px;
+
+    padding: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #F7F9FC;
+    color: var(--navy);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    text-align: center;
+}
+
+.program-plan-button {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+}
+
+
+/* Empty / Search */
+
+.program-empty-state,
+.program-no-results {
+    min-height: 220px;
+
+    padding: 30px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    text-align: center;
+}
+
+.program-empty-state span,
+.program-no-results span {
+    display: block;
+
+    font-size: 36px;
+
+    margin-bottom: 9px;
+}
+
+.program-empty-state h3,
+.program-no-results h3 {
+    color: var(--navy);
+
+    font-size: 18px;
+
+    margin-bottom: 4px;
+}
+
+.program-empty-state p,
+.program-no-results p {
+    color: var(--text-secondary);
+
+    font-size: 13px;
+}
+
+.program-no-results {
+    margin-bottom: 40px;
+}
+
+.program-no-results[hidden] {
+    display: none;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .program-tabs {
+        gap: 9px;
+    }
+
+    .program-tab {
+        min-height: 90px;
+
+        padding: 13px;
+
+        border-radius: 18px;
+
+        gap: 9px;
+    }
+
+    .program-tab > span {
+        width: 43px;
+        height: 43px;
+
+        flex-basis: 43px;
+
+        border-radius: 13px;
+
+        font-size: 19px;
+    }
+
+    .program-tab strong {
+        font-size: 13px;
+    }
+
+    .program-tab small {
+        font-size: 9px;
+    }
+
+
+    .college-programs {
+        grid-template-columns: 1fr;
+    }
+
+    .college-toggle {
+        min-height: 88px;
+
+        padding: 14px;
+
+        border-radius: 19px;
+    }
+
+    .college-toggle-content h3 {
+        font-size: 15px;
+    }
+
+
+    .program-card {
+        padding: 15px;
+        border-radius: 18px;
+    }
+
+    .program-actions {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .program-button {
+        font-size: 10px;
+    }
+
+}
