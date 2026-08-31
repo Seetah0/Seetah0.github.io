@@ -24,6 +24,15 @@ const schedulePreview =
     document.querySelector(".schedule-preview");
 
 
+const daysOrder = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday"
+];
+
+
 const dayNames = {
     Sunday: "الأحد",
     Monday: "الاثنين",
@@ -49,20 +58,33 @@ function formatTime(time) {
     const [hourString, minute] =
         time.split(":");
 
-    let hour =
-        Number(hourString);
+    let hour = Number(hourString);
 
     const period =
         hour >= 12 ? "م" : "ص";
 
-    hour =
-        hour % 12;
+    hour = hour % 12;
 
     if (hour === 0) {
         hour = 12;
     }
 
     return `${hour}:${minute} ${period}`;
+}
+
+
+/* =========================================
+   Escape HTML
+========================================= */
+
+function escapeHTML(value) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = value;
+
+    return div.innerHTML;
 }
 
 
@@ -101,16 +123,48 @@ function renderSchedule() {
     }
 
 
-    const daysOrder = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday"
-    ];
+    const wrapper =
+        document.createElement("div");
+
+    wrapper.className =
+        "weekly-schedule-wrapper";
+
+
+    const grid =
+        document.createElement("div");
+
+    grid.className =
+        "weekly-schedule-grid";
 
 
     daysOrder.forEach((day) => {
+
+        const column =
+            document.createElement("section");
+
+        column.className =
+            "weekly-day-column";
+
+
+        const heading =
+            document.createElement("div");
+
+        heading.className =
+            "weekly-day-heading";
+
+        heading.textContent =
+            dayNames[day];
+
+
+        column.appendChild(heading);
+
+
+        const content =
+            document.createElement("div");
+
+        content.className =
+            "weekly-day-content";
+
 
         const dayCourses =
             courses
@@ -127,28 +181,19 @@ function renderSchedule() {
 
 
         if (dayCourses.length === 0) {
-            return;
+
+            const empty =
+                document.createElement("div");
+
+            empty.className =
+                "weekly-day-empty";
+
+            empty.textContent =
+                "لا توجد محاضرات";
+
+            content.appendChild(empty);
+
         }
-
-
-        const daySection =
-            document.createElement("section");
-
-        daySection.className =
-            "schedule-day";
-
-
-        const heading =
-            document.createElement("h3");
-
-        heading.className =
-            "schedule-day-title";
-
-        heading.textContent =
-            dayNames[day];
-
-
-        daySection.appendChild(heading);
 
 
         dayCourses.forEach((course) => {
@@ -157,31 +202,10 @@ function renderSchedule() {
                 document.createElement("article");
 
             card.className =
-                "schedule-course-card";
+                "weekly-course-card";
 
 
             card.innerHTML = `
-
-                <div class="schedule-course-info">
-
-                    <h4>
-                        ${course.name}
-                    </h4>
-
-                    <p>
-                        ${formatTime(course.startTime)}
-                        —
-                        ${formatTime(course.endTime)}
-                    </p>
-
-                    ${
-                        course.room
-                            ? `<span>القاعة: ${course.room}</span>`
-                            : ""
-                    }
-
-                </div>
-
 
                 <button
                     type="button"
@@ -192,19 +216,44 @@ function renderSchedule() {
                     ×
                 </button>
 
+                <h4>
+                    ${escapeHTML(course.name)}
+                </h4>
+
+                <div class="weekly-course-time">
+                    ${formatTime(course.startTime)}
+                    <span>—</span>
+                    ${formatTime(course.endTime)}
+                </div>
+
+                ${
+                    course.room
+                        ? `
+                            <div class="weekly-course-room">
+                                القاعة ${escapeHTML(course.room)}
+                            </div>
+                          `
+                        : ""
+                }
+
             `;
 
 
-            daySection.appendChild(card);
+            content.appendChild(card);
 
         });
 
 
-        schedulePreview.appendChild(
-            daySection
-        );
+        column.appendChild(content);
+
+        grid.appendChild(column);
 
     });
+
+
+    wrapper.appendChild(grid);
+
+    schedulePreview.appendChild(wrapper);
 
 }
 
@@ -235,9 +284,7 @@ addCourseButton.addEventListener(
 
         if (!name) {
 
-            alert(
-                "أدخلي اسم المادة."
-            );
+            alert("أدخلي اسم المادة.");
 
             return;
         }
@@ -245,9 +292,7 @@ addCourseButton.addEventListener(
 
         if (!day) {
 
-            alert(
-                "اختاري يوم المحاضرة."
-            );
+            alert("اختاري يوم المحاضرة.");
 
             return;
         }
@@ -255,9 +300,7 @@ addCourseButton.addEventListener(
 
         if (!startTime) {
 
-            alert(
-                "اختاري وقت البداية."
-            );
+            alert("اختاري وقت البداية.");
 
             return;
         }
@@ -265,9 +308,7 @@ addCourseButton.addEventListener(
 
         if (!endTime) {
 
-            alert(
-                "اختاري وقت النهاية."
-            );
+            alert("اختاري وقت النهاية.");
 
             return;
         }
@@ -285,7 +326,9 @@ addCourseButton.addEventListener(
 
         const course = {
 
-            id: Date.now(),
+            id:
+                Date.now() +
+                Math.floor(Math.random() * 1000),
 
             name: name,
 
@@ -306,7 +349,7 @@ addCourseButton.addEventListener(
         renderSchedule();
 
 
-        /* تفريغ الحقول */
+        /* تفريغ بيانات المادة */
 
         courseNameInput.value = "";
         courseRoomInput.value = "";
@@ -333,9 +376,7 @@ schedulePreview.addEventListener(
 
 
         const id =
-            Number(
-                event.target.dataset.id
-            );
+            Number(event.target.dataset.id);
 
 
         courses =
