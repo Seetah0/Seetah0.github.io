@@ -23,6 +23,12 @@ const addCourseButton =
 const schedulePreview =
     document.querySelector(".schedule-preview");
 
+const scheduleActions =
+    document.getElementById("schedule-actions");
+
+const printScheduleButton =
+    document.getElementById("print-schedule");
+
 
 const daysOrder = [
     "Sunday",
@@ -58,12 +64,14 @@ function formatTime(time) {
     const [hourString, minute] =
         time.split(":");
 
-    let hour = Number(hourString);
+    let hour =
+        Number(hourString);
 
     const period =
         hour >= 12 ? "م" : "ص";
 
-    hour = hour % 12;
+    hour =
+        hour % 12;
 
     if (hour === 0) {
         hour = 12;
@@ -89,12 +97,34 @@ function escapeHTML(value) {
 
 
 /* =========================================
+   Update Actions
+========================================= */
+
+function updateScheduleActions() {
+
+    if (courses.length > 0) {
+
+        scheduleActions.hidden = false;
+
+    } else {
+
+        scheduleActions.hidden = true;
+
+    }
+
+}
+
+
+/* =========================================
    Render Schedule
 ========================================= */
 
 function renderSchedule() {
 
     schedulePreview.innerHTML = "";
+
+
+    updateScheduleActions();
 
 
     if (courses.length === 0) {
@@ -221,9 +251,15 @@ function renderSchedule() {
                 </h4>
 
                 <div class="weekly-course-time">
+
                     ${formatTime(course.startTime)}
-                    <span>—</span>
+
+                    <span>
+                        —
+                    </span>
+
                     ${formatTime(course.endTime)}
+
                 </div>
 
                 ${
@@ -284,7 +320,9 @@ addCourseButton.addEventListener(
 
         if (!name) {
 
-            alert("أدخلي اسم المادة.");
+            alert(
+                "أدخلي اسم المادة."
+            );
 
             return;
         }
@@ -292,7 +330,9 @@ addCourseButton.addEventListener(
 
         if (!day) {
 
-            alert("اختاري يوم المحاضرة.");
+            alert(
+                "اختاري يوم المحاضرة."
+            );
 
             return;
         }
@@ -300,7 +340,9 @@ addCourseButton.addEventListener(
 
         if (!startTime) {
 
-            alert("اختاري وقت البداية.");
+            alert(
+                "اختاري وقت البداية."
+            );
 
             return;
         }
@@ -308,7 +350,9 @@ addCourseButton.addEventListener(
 
         if (!endTime) {
 
-            alert("اختاري وقت النهاية.");
+            alert(
+                "اختاري وقت النهاية."
+            );
 
             return;
         }
@@ -328,7 +372,9 @@ addCourseButton.addEventListener(
 
             id:
                 Date.now() +
-                Math.floor(Math.random() * 1000),
+                Math.floor(
+                    Math.random() * 1000
+                ),
 
             name: name,
 
@@ -348,8 +394,6 @@ addCourseButton.addEventListener(
 
         renderSchedule();
 
-
-        /* تفريغ بيانات المادة */
 
         courseNameInput.value = "";
         courseRoomInput.value = "";
@@ -376,7 +420,9 @@ schedulePreview.addEventListener(
 
 
         const id =
-            Number(event.target.dataset.id);
+            Number(
+                event.target.dataset.id
+            );
 
 
         courses =
@@ -390,3 +436,34 @@ schedulePreview.addEventListener(
 
     }
 );
+
+
+/* =========================================
+   Print / Save PDF
+========================================= */
+
+printScheduleButton.addEventListener(
+    "click",
+    function () {
+
+        if (courses.length === 0) {
+
+            alert(
+                "أضيفي مادة واحدة على الأقل قبل الطباعة."
+            );
+
+            return;
+        }
+
+
+        window.print();
+
+    }
+);
+
+
+/* =========================================
+   Initial
+========================================= */
+
+updateScheduleActions();
