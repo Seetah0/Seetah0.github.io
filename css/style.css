@@ -1482,8 +1482,27 @@ body {
 
 .schedule-form-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.schedule-form-grid .form-group:first-child {
+    grid-column: 1 / -1;
+}
+
+.schedule-form-grid input,
+.schedule-form-grid select {
+    min-width: 0;
+}
+@media (max-width: 900px) {
+
+    .schedule-form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .schedule-form-grid .form-group:first-child {
+        grid-column: 1 / -1;
+    }
 }
 
 .schedule-preview {
@@ -1526,16 +1545,8 @@ body {
 
 @media (max-width: 600px) {
 
-    .schedule-builder {
-        width: calc(100% - 32px);
-    }
-
     .schedule-form-grid {
         grid-template-columns: 1fr;
-    }
-
-    .schedule-preview {
-        min-height: 240px;
     }
 
 }
