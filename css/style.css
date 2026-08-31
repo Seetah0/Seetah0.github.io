@@ -451,9 +451,9 @@ body {
 }
 
 
-/* =========================
-   Bottom Navigation
-========================= */
+/* =========================================
+   Floating Bottom Navigation
+========================================= */
 
 .bottom-nav {
     position: fixed;
@@ -466,28 +466,31 @@ body {
     width: calc(100% - 24px);
     max-width: 520px;
 
-    min-height: 74px;
+    min-height: 72px;
 
-    padding: 8px 6px;
+    padding: 8px 7px;
 
     background: rgba(255, 255, 255, 0.96);
 
     border: 1px solid var(--border);
-    border-radius: 24px;
+    border-radius: 25px;
 
     display: grid;
-
     grid-template-columns: repeat(5, 1fr);
 
     align-items: center;
 
     z-index: 1000;
 
-    box-shadow: 0 12px 38px rgba(11, 31, 58, 0.15);
+    box-shadow:
+        0 14px 40px rgba(11, 31, 58, 0.14);
 }
 
 .bottom-nav-item {
+    position: relative;
+
     min-width: 0;
+    min-height: 56px;
 
     color: var(--text-secondary);
 
@@ -499,34 +502,99 @@ body {
     align-items: center;
     justify-content: center;
 
-    gap: 3px;
+    gap: 4px;
 
-    border-radius: 16px;
+    border-radius: 18px;
 
-    padding: 7px 2px;
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
 }
 
 .bottom-nav-icon {
-    font-size: 21px;
+    width: 34px;
+    height: 34px;
 
-    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
 }
 
 .bottom-nav-label {
-    font-size: 11px;
-
-    font-weight: 700;
+    font-size: 10px;
+    font-weight: 800;
 
     white-space: nowrap;
 }
 
+
+/* Active Item */
+
 .bottom-nav-item.active {
     color: var(--navy);
 
-    background: #EEF3F8;
+    transform: translateY(-4px);
+}
+
+.bottom-nav-item.active .bottom-nav-icon {
+    width: 44px;
+    height: 44px;
+
+    background: var(--navy);
+    color: var(--white);
+
+    box-shadow:
+        0 8px 20px rgba(11, 31, 58, 0.20);
+
+    transform: translateY(-7px);
+}
+
+.bottom-nav-item.active .bottom-nav-label {
+    margin-top: -5px;
+
+    color: var(--navy);
+
+    font-size: 10px;
 }
 
 
+/* Dark Mode */
+
+body.dark-mode .bottom-nav {
+    background: rgba(15, 27, 43, 0.97);
+
+    border-color: #26384D;
+}
+
+body.dark-mode .bottom-nav-item {
+    color: #8798AA;
+}
+
+body.dark-mode .bottom-nav-item.active {
+    color: #EAF0F7;
+}
+
+body.dark-mode .bottom-nav-item.active .bottom-nav-icon {
+    background: #EAF0F7;
+    color: #142235;
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .bottom-nav-item.active .bottom-nav-label {
+    color: #EAF0F7;
+}
 /* =========================
    Desktop
 ========================= */
