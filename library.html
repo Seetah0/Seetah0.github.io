@@ -1,11 +1,463 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وِجهة | WIJHA</title>
+
+    <link rel="stylesheet" href="css/style.css?v=32">
+
+    <title>مكتبة الطالب | وِجهة</title>
 </head>
+
 <body>
-    <h1>الأدوات الأكاديمية</h1>
+
+    <header class="top-bar">
+
+        <div class="brand">
+            <img src="assets/images/wijha-logo.jpg" alt="شعار وِجهة">
+            <span>مكتبة الطالب</span>
+        </div>
+
+        <div class="top-actions">
+            <button aria-label="الإشعارات">🔔</button>
+            <button aria-label="الوضع الليلي">🌙</button>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="page-intro">
+
+            <p class="page-eyebrow">
+                مكتبة الطالب
+            </p>
+
+            <h1>
+                المستندات الرسمية
+            </h1>
+
+            <p class="page-description">
+                أهم التعليمات واللوائح والأدلة الأكاديمية التي يحتاجها الطالب، مرتبة للوصول إليها بسهولة.
+            </p>
+
+        </section>
+
+
+        <section class="student-library">
+
+            <div class="library-documents-grid">
+
+
+                <!-- تعليمات الطالبات -->
+
+                <button
+                    type="button"
+                    class="library-document-card student-instructions-toggle"
+                    id="student-instructions-toggle"
+                    aria-expanded="false"
+                    aria-controls="student-instructions-details"
+                >
+
+                    <div class="library-document-icon">
+                        👩🏻‍🎓
+                    </div>
+
+                    <div class="library-document-content">
+
+                        <span class="library-document-type">
+                            تعليمات مهمة
+                        </span>
+
+                        <h2>
+                            تعليمات الطالبات
+                        </h2>
+
+                        <p>
+                            تعليمات مهمة للطالبات داخل الحرم الجامعي.
+                        </p>
+
+                    </div>
+
+                    <span class="library-document-arrow instructions-arrow">
+                        ↓
+                    </span>
+
+                </button>
+
+
+                <!-- السلوك والانضباط -->
+
+                <a
+                    href="https://www.iau.edu.sa/sites/default/files/resources/student_code_of_conduct_and_discipline.pdf"
+                    target="_blank"
+                    rel="noopener"
+                    class="library-document-card"
+                >
+
+                    <div class="library-document-icon">
+                        ⚖️
+                    </div>
+
+                    <div class="library-document-content">
+
+                        <span class="library-document-type">
+                            لائحة رسمية
+                        </span>
+
+                        <h2>
+                            قواعد السلوك والانضباط الطلابي
+                        </h2>
+
+                        <p>
+                            الاطلاع على قواعد السلوك والانضباط المعتمدة للطلبة.
+                        </p>
+
+                    </div>
+
+                    <span class="library-document-arrow">
+                        ↗
+                    </span>
+
+                </a>
+
+
+                <!-- الميثاق -->
+
+                <a
+                    href="https://www.iau.edu.sa/sites/default/files/resources/university_student_charter_rights_and_duties__2.pdf"
+                    target="_blank"
+                    rel="noopener"
+                    class="library-document-card"
+                >
+
+                    <div class="library-document-icon">
+                        🤝
+                    </div>
+
+                    <div class="library-document-content">
+
+                        <span class="library-document-type">
+                            حقوق وواجبات
+                        </span>
+
+                        <h2>
+                            ميثاق الطالب الجامعي
+                        </h2>
+
+                        <p>
+                            تعرّف على حقوق الطالب الجامعي وواجباته.
+                        </p>
+
+                    </div>
+
+                    <span class="library-document-arrow">
+                        ↗
+                    </span>
+
+                </a>
+
+
+                <!-- تسجيل المقررات -->
+
+                <a
+                    href="https://www.iau.edu.sa/sites/default/files/resources/course_registration_guide26.pdf"
+                    target="_blank"
+                    rel="noopener"
+                    class="library-document-card"
+                >
+
+                    <div class="library-document-icon">
+                        📝
+                    </div>
+
+                    <div class="library-document-content">
+
+                        <span class="library-document-type">
+                            دليل أكاديمي
+                        </span>
+
+                        <h2>
+                            دليل تسجيل المقررات
+                        </h2>
+
+                        <p>
+                            الدليل الرسمي لاستخدام نظام سجلات الطلاب وتسجيل المقررات.
+                        </p>
+
+                    </div>
+
+                    <span class="library-document-arrow">
+                        ↗
+                    </span>
+
+                </a>
+
+
+                <!-- التقويم -->
+
+                <a
+                    href="https://www.iau.edu.sa/sites/default/files/resources/academic_events_calendar_-_first_semester_1448-1449_ah_0.pdf"
+                    target="_blank"
+                    rel="noopener"
+                    class="library-document-card"
+                >
+
+                    <div class="library-document-icon">
+                        📅
+                    </div>
+
+                    <div class="library-document-content">
+
+                        <span class="library-document-type">
+                            التقويم الأكاديمي
+                        </span>
+
+                        <h2>
+                            التقويم الزمني — الفصل الأول
+                        </h2>
+
+                        <p>
+                            التقويم الأكاديمي للفصل الأول 1448–1449هـ.
+                        </p>
+
+                    </div>
+
+                    <span class="library-document-arrow">
+                        ↗
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- تفاصيل تعليمات الطالبات -->
+
+            <section
+                class="student-instructions-details"
+                id="student-instructions-details"
+                hidden
+            >
+
+                <div class="instructions-details-heading">
+
+                    <div>
+
+                        <span class="library-document-type">
+                            تعليمات مهمة
+                        </span>
+
+                        <h2>
+                            تعليمات الطالبات داخل الحرم الجامعي
+                        </h2>
+
+                    </div>
+
+                    <div class="instructions-heading-icon">
+                        👩🏻‍🎓
+                    </div>
+
+                </div>
+
+
+                <div class="instructions-list">
+
+
+                    <article class="instruction-item">
+
+                        <span class="instruction-number">
+                            01
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                البطاقة الجامعية
+                            </h3>
+
+                            <p>
+                                الالتزام بإبراز البطاقة الجامعية أثناء الدخول للحرم الجامعي.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="instruction-item">
+
+                        <span class="instruction-number">
+                            02
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                الفناء الخارجي
+                            </h3>
+
+                            <p>
+                                عدم الخروج في الفناء الخارجي إلا بلبس العباية؛ لأنها منطقة مشتركة مع هيئة التدريس الرجال.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="instruction-item">
+
+                        <span class="instruction-number">
+                            03
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                الفترة المسائية
+                            </h3>
+
+                            <p>
+                                عند انتهاء وقت المحاضرات في الفترة المسائية، عدم الجلوس في الفناء الخارجي أو الأماكن المغلقة، بل الجلوس بالقرب من موظفات الأمن في مقدمة الكلية والالتزام بتعليماتهن.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="instruction-item">
+
+                        <span class="instruction-number">
+                            04
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                المفقودات
+                            </h3>
+
+                            <p>
+                                عند فقدان الأغراض الشخصية الهامة، التوجه لمكتب (26).
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="instruction-item">
+
+                        <span class="instruction-number">
+                            05
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                البطاقة الجامعية
+                            </h3>
+
+                            <p>
+                                عند الاستفسار عن أمور البطاقة الجامعية، التواصل مع مسؤولة البطاقات:
+                            </p>
+
+                            <div class="instruction-contact">
+
+                                <strong>
+                                    أ/ فاطمة السبيعي
+                                </strong>
+
+                                <a href="mailto:faalsubaie@iau.edu.sa">
+                                    ✉️ faalsubaie@iau.edu.sa
+                                </a>
+
+                                <span>
+                                    ☎ التحويلة: 32977
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="instruction-item">
+
+                        <span class="instruction-number">
+                            06
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                السلوك والانضباط الطلابي
+                            </h3>
+
+                            <p>
+                                ضرورة اطلاع الطالبات على لائحة قواعد السلوك والانضباط الطلابي.
+                            </p>
+
+                            <a
+                                href="https://www.iau.edu.sa/sites/default/files/resources/student_code_of_conduct_and_discipline.pdf"
+                                target="_blank"
+                                rel="noopener"
+                                class="instruction-official-link"
+                            >
+                                ⚖️ فتح لائحة السلوك والانضباط
+                                <span>↗</span>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <nav class="bottom-nav" aria-label="التنقل الرئيسي">
+
+        <a href="index.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">⌂</span>
+            <span class="bottom-nav-label">الرئيسية</span>
+        </a>
+
+        <a href="tools.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">▦</span>
+            <span class="bottom-nav-label">الأدوات</span>
+        </a>
+
+        <a href="services.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">◇</span>
+            <span class="bottom-nav-label">الخدمات</span>
+        </a>
+
+        <a href="library.html" class="bottom-nav-item active">
+            <span class="bottom-nav-icon">▤</span>
+            <span class="bottom-nav-label">المكتبة</span>
+        </a>
+
+        <a href="news.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">▱</span>
+            <span class="bottom-nav-label">الأخبار</span>
+        </a>
+
+    </nav>
+
+
+    <script src="js/library.js?v=1"></script>
+
 </body>
+
 </html>
