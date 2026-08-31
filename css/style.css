@@ -2449,3 +2449,318 @@ body {
     }
 
 }
+/* =========================================
+   Counseling Center
+========================================= */
+
+.counseling-toggle {
+    width: 100%;
+    border: 1px solid var(--border);
+    font-family: inherit;
+    cursor: pointer;
+    text-align: right;
+}
+
+.counseling-arrow {
+    transition: transform 0.2s ease;
+}
+
+.counseling-toggle[aria-expanded="true"]
+.counseling-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* Details */
+
+.counseling-details {
+    margin-top: 16px;
+    padding: 24px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 24px;
+
+    box-shadow: 0 6px 20px rgba(11, 31, 58, 0.04);
+}
+
+.counseling-details[hidden] {
+    display: none;
+}
+
+.counseling-details-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 14px;
+
+    padding-bottom: 18px;
+    margin-bottom: 22px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.counseling-details-header h2 {
+    color: var(--navy);
+
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.counseling-details-icon {
+    width: 48px;
+    height: 48px;
+
+    flex: 0 0 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #EEF3F8;
+    border-radius: 15px;
+
+    font-size: 21px;
+}
+
+
+/* Groups */
+
+.counseling-group {
+    margin-bottom: 26px;
+}
+
+.counseling-group h3 {
+    color: var(--navy);
+
+    font-size: 17px;
+    font-weight: 800;
+
+    margin-bottom: 12px;
+}
+
+
+/* Locations */
+
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+}
+
+.location-card {
+    min-height: 115px;
+
+    padding: 15px;
+
+    background: #FAFBFC;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+}
+
+.location-icon {
+    font-size: 17px;
+}
+
+.location-card h4 {
+    color: var(--navy);
+
+    font-size: 14px;
+    font-weight: 800;
+
+    margin-bottom: 4px;
+}
+
+.location-card p {
+    color: var(--text-secondary);
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* Phone */
+
+.contact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.contact-button {
+    min-height: 46px;
+
+    padding: 0 15px;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    background: #EEF3F8;
+    color: var(--navy);
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    direction: ltr;
+}
+
+
+/* Email */
+
+.email-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+.email-card {
+    min-height: 82px;
+
+    padding: 14px;
+
+    background: #FAFBFC;
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+.email-icon {
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #EEF3F8;
+    border-radius: 13px;
+}
+
+.email-label {
+    display: block;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    margin-bottom: 2px;
+}
+
+.email-card strong {
+    display: block;
+
+    color: var(--navy);
+
+    font-size: 13px;
+
+    direction: ltr;
+}
+
+
+/* Official page */
+
+.official-counseling-link {
+    min-height: 72px;
+
+    padding: 15px 17px;
+
+    background: var(--navy);
+    color: var(--white);
+
+    border-radius: 18px;
+
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+.official-counseling-link span:first-child {
+    display: block;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 11px;
+
+    margin-bottom: 2px;
+}
+
+.official-counseling-link strong {
+    font-size: 14px;
+}
+
+.official-link-arrow {
+    font-size: 21px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .counseling-details {
+        padding: 17px;
+
+        border-radius: 21px;
+    }
+
+    .counseling-details-header h2 {
+        font-size: 19px;
+    }
+
+    .locations-grid,
+    .email-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .location-card {
+        min-height: auto;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+    }
+
+    .contact-button {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .email-card strong {
+        font-size: 12px;
+    }
+
+}
