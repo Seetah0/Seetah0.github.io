@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css?v=19">
+
+    <title>مصمم الجدول | وِجهة</title>
+</head>
+
+<body>
+
+    <header class="top-bar">
+
+        <div class="brand">
+            <img src="assets/images/wijha-logo.jpg" alt="شعار وِجهة">
+            <span>مصمم الجدول</span>
+        </div>
+
+        <div class="top-actions">
+            <button aria-label="الإشعارات">🔔</button>
+            <button aria-label="الوضع الليلي">🌙</button>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="page-intro">
+
+            <p class="page-eyebrow">
+                الأدوات الأكاديمية
+            </p>
+
+            <h1>
+                مصمم الجدول
+            </h1>
+
+            <p class="page-description">
+                أضف موادك ومواعيدها، ثم أنشئ جدولًا أسبوعيًا مرتبًا يمكنك طباعته أو حفظه لاحقًا.
+            </p>
+
+        </section>
+
+
+        <section class="schedule-builder">
+
+            <div class="calculator-section">
+
+                <div class="calculator-heading">
+
+                    <div>
+                        <span class="calculator-step">01</span>
+                        <h2>إضافة مادة</h2>
+                    </div>
+
+                    <p>
+                        أدخل بيانات المادة وموعدها.
+                    </p>
+
+                </div>
+
+
+                <div class="schedule-form-grid">
+
+                    <div class="form-group">
+
+                        <label for="course-name">
+                            اسم المادة
+                        </label>
+
+                        <input
+                            type="text"
+                            id="course-name"
+                            placeholder="مثال: قواعد البيانات"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="course-day">
+                            اليوم
+                        </label>
+
+                        <select id="course-day">
+
+                            <option value="">
+                                اختر اليوم
+                            </option>
+
+                            <option value="Sunday">
+                                الأحد
+                            </option>
+
+                            <option value="Monday">
+                                الاثنين
+                            </option>
+
+                            <option value="Tuesday">
+                                الثلاثاء
+                            </option>
+
+                            <option value="Wednesday">
+                                الأربعاء
+                            </option>
+
+                            <option value="Thursday">
+                                الخميس
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="start-time">
+                            وقت البداية
+                        </label>
+
+                        <input
+                            type="time"
+                            id="start-time"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="end-time">
+                            وقت النهاية
+                        </label>
+
+                        <input
+                            type="time"
+                            id="end-time"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="course-room">
+                            القاعة
+                        </label>
+
+                        <input
+                            type="text"
+                            id="course-room"
+                            placeholder="اختياري"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="calculate-gpa-button"
+                    id="add-schedule-course"
+                >
+                    إضافة إلى الجدول
+                </button>
+
+            </div>
+
+
+            <div class="calculator-section">
+
+                <div class="calculator-heading">
+
+                    <div>
+                        <span class="calculator-step">02</span>
+                        <h2>الجدول الأسبوعي</h2>
+                    </div>
+
+                    <p>
+                        ستظهر المواد هنا بعد إضافتها.
+                    </p>
+
+                </div>
+
+
+                <div class="schedule-preview">
+
+                    <div class="schedule-empty">
+
+                        <div class="schedule-empty-icon">
+                            🗓️
+                        </div>
+
+                        <h3>
+                            جدولك فارغ حاليًا
+                        </h3>
+
+                        <p>
+                            أضف أول مادة من الأعلى لتبدأ بتصميم جدولك.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <section class="privacy-note">
+
+                <div class="privacy-icon">
+                    🔒
+                </div>
+
+                <div>
+
+                    <h3>
+                        بدون حفظ بياناتك
+                    </h3>
+
+                    <p>
+                        بيانات الجدول تبقى داخل متصفحك ولا يتم إرسالها إلى خادم.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <nav class="bottom-nav" aria-label="التنقل الرئيسي">
+
+        <a href="index.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">⌂</span>
+            <span class="bottom-nav-label">الرئيسية</span>
+        </a>
+
+        <a href="tools.html" class="bottom-nav-item active">
+            <span class="bottom-nav-icon">▦</span>
+            <span class="bottom-nav-label">الأدوات</span>
+        </a>
+
+        <a href="services.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">◇</span>
+            <span class="bottom-nav-label">الخدمات</span>
+        </a>
+
+        <a href="library.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">▤</span>
+            <span class="bottom-nav-label">المكتبة</span>
+        </a>
+
+        <a href="news.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">▱</span>
+            <span class="bottom-nav-label">الأخبار</span>
+        </a>
+
+    </nav>
+
+</body>
+
+</html>
