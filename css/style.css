@@ -4321,37 +4321,90 @@ body {
 ========================================= */
 
 body.dark-mode {
-    --navy: #DDE8F5;
-    --navy-light: #263B55;
+    --navy: #E6EDF6;
+    --navy-light: #233A57;
 
-    --white: #172233;
-    --background: #0E1724;
+    --white: #142235;
+    --background: #0B1625;
 
-    --text: #F4F7FA;
-    --text-secondary: #AAB7C6;
+    --text: #EAF0F7;
+    --text-secondary: #9BAABC;
 
-    --border: #2B3A4D;
+    --border: #26384D;
+}
+
+body.dark-mode .top-bar,
+body.dark-mode .secondary-card,
+body.dark-mode .tool-card,
+body.dark-mode .calculator-section,
+body.dark-mode .gpa-results,
+body.dark-mode .service-section,
+body.dark-mode .service-choice-card,
+body.dark-mode .library-document-card,
+body.dark-mode .student-instructions-details,
+body.dark-mode .faq-item,
+body.dark-mode .wijha-news-card,
+body.dark-mode .event-directory-card,
+body.dark-mode .college-toggle,
+body.dark-mode .program-card,
+body.dark-mode .notification-panel {
+    background: #142235;
 }
 
 body.dark-mode .top-actions,
 body.dark-mode .program-search-box,
 body.dark-mode .library-tabs,
-body.dark-mode .news-tabs {
-    background: #1B293B;
+body.dark-mode .news-tabs,
+body.dark-mode .time-box,
+body.dark-mode .service-action-card,
+body.dark-mode .guide-card,
+body.dark-mode .location-card,
+body.dark-mode .email-card,
+body.dark-mode .weekly-day-content,
+body.dark-mode .news-image-placeholder,
+body.dark-mode .privacy-note,
+body.dark-mode .service-help-box {
+    background: #101D2D;
 }
 
 body.dark-mode input,
 body.dark-mode select {
-    background: #142133;
-    color: #F4F7FA;
+    background: #0F1B2B;
+    color: #EAF0F7;
+    border-color: #2A3D53;
 }
 
 body.dark-mode .main-card,
 body.dark-mode .calculate-gpa-button,
 body.dark-mode .program-tab.active,
 body.dark-mode .library-tab.active,
-body.dark-mode .news-tab.active {
-    background: #263B55;
+body.dark-mode .news-tab.active,
+body.dark-mode .official-counseling-link,
+body.dark-mode .event-date-box {
+    background: #1E3552;
+}
+
+body.dark-mode .bottom-nav {
+    background: rgba(15, 27, 43, 0.97);
+    border-color: #26384D;
+}
+
+body.dark-mode .bottom-nav-item.active {
+    background: #1C3048;
+    color: #EAF0F7;
+}
+
+body.dark-mode .news-category,
+body.dark-mode .official-badge,
+body.dark-mode .service-action-icon,
+body.dark-mode .library-document-icon,
+body.dark-mode .program-icon,
+body.dark-mode .college-toggle-icon,
+body.dark-mode .privacy-icon,
+body.dark-mode .notification-item-icon,
+body.dark-mode .instructions-heading-icon {
+    background: #1C3048;
+    color: #EAF0F7;
 }
 
 
