@@ -12,217 +12,267 @@
 
 <body>
 
-    <header class="top-bar">
+<header class="top-bar">
 
-        <div class="brand">
-            <img src="assets/images/wijha-logo.jpg" alt="شعار وِجهة">
-            <span>مكتبة الطالب</span>
-        </div>
+    <div class="brand">
+        <img src="assets/images/wijha-logo.jpg" alt="شعار وِجهة">
+        <span>مكتبة الطالب</span>
+    </div>
 
-        <div class="top-actions">
-            <button aria-label="الإشعارات">🔔</button>
-            <button aria-label="الوضع الليلي">🌙</button>
-        </div>
+    <div class="top-actions">
+        <button aria-label="الإشعارات">🔔</button>
+        <button aria-label="الوضع الليلي">🌙</button>
+    </div>
 
-    </header>
+</header>
 
 
-    <main>
+<main>
 
-        <section class="page-intro">
+    <section class="page-intro">
 
-            <p class="page-eyebrow">
-                مكتبة الطالب
-            </p>
+        <p class="page-eyebrow">
+            مكتبة الطالب
+        </p>
 
-            <h1>
+        <h1>
+            كل ما تحتاجه في مكان واحد
+        </h1>
+
+        <p class="page-description">
+            المستندات والتعليمات والإجابات التي تحتاجها خلال رحلتك الجامعية.
+        </p>
+
+    </section>
+
+
+    <!-- Tabs -->
+
+    <section class="library-tabs-wrapper">
+
+        <div class="library-tabs">
+
+            <button
+                type="button"
+                class="library-tab active"
+                data-library-tab="documents"
+            >
+                <span>📄</span>
                 المستندات الرسمية
-            </h1>
+            </button>
 
-            <p class="page-description">
-                أهم التعليمات واللوائح والأدلة الأكاديمية التي يحتاجها الطالب، مرتبة للوصول إليها بسهولة.
-            </p>
+            <button
+                type="button"
+                class="library-tab"
+                data-library-tab="faq"
+            >
+                <span>❓</span>
+                الأسئلة الشائعة
+            </button>
 
-        </section>
+        </div>
+
+    </section>
 
 
-        <section class="student-library">
+    <section class="student-library">
+
+
+        <!-- =====================================
+             Official Documents
+        ====================================== -->
+
+        <section
+            class="library-panel active"
+            id="library-documents"
+        >
+
+            <div class="library-section-heading">
+
+                <h2>
+                    المستندات الرسمية
+                </h2>
+
+                <p>
+                    أهم اللوائح والتعليمات والأدلة الأكاديمية في مكان واحد.
+                </p>
+
+            </div>
+
 
             <div class="library-documents-grid">
 
 
                 <!-- تعليمات الطالبات -->
 
-              <!-- تعليمات الطالبات -->
+                <div class="student-instructions-block">
 
-<div class="student-instructions-block">
-
-    <button
-        type="button"
-        class="library-document-card student-instructions-toggle"
-        id="student-instructions-toggle"
-        aria-expanded="false"
-        aria-controls="student-instructions-details"
-    >
-
-        <div class="library-document-icon">
-            👩🏻‍🎓
-        </div>
-
-        <div class="library-document-content">
-
-            <span class="library-document-type">
-                تعليمات مهمة
-            </span>
-
-            <h2>
-                تعليمات الطالبات
-            </h2>
-
-            <p>
-                تعليمات مهمة للطالبات داخل الحرم الجامعي.
-            </p>
-
-        </div>
-
-        <span class="library-document-arrow instructions-arrow">
-            ↓
-        </span>
-
-    </button>
-
-
-    <section
-        class="student-instructions-details"
-        id="student-instructions-details"
-        hidden
-    >
-
-        <div class="instructions-details-heading">
-
-            <div>
-
-                <span class="library-document-type">
-                    تعليمات مهمة
-                </span>
-
-                <h2>
-                    تعليمات الطالبات داخل الحرم الجامعي
-                </h2>
-
-            </div>
-
-            <div class="instructions-heading-icon">
-                👩🏻‍🎓
-            </div>
-
-        </div>
-
-
-        <div class="instructions-list">
-
-
-            <article class="instruction-item">
-
-                <span class="instruction-number">
-                    01
-                </span>
-
-                <div>
-
-                    <h3>
-                        البطاقة الجامعية
-                    </h3>
-
-                    <p>
-                        الالتزام بإبراز البطاقة الجامعية أثناء الدخول للحرم الجامعي.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="instruction-item">
-
-                <span class="instruction-number">
-                    02
-                </span>
-
-                <div>
-
-                    <h3>
-                        الفناء الخارجي
-                    </h3>
-
-                    <p>
-                        عدم الخروج في الفناء الخارجي إلا بلبس العباية؛ لأنها منطقة مشتركة مع هيئة التدريس الرجال.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="instruction-item">
-
-                <span class="instruction-number">
-                    03
-                </span>
-
-                <div>
-
-                    <h3>
-                        الفترة المسائية
-                    </h3>
-
-                    <p>
-                        عند انتهاء وقت المحاضرات في الفترة المسائية، عدم الجلوس في الفناء الخارجي أو الأماكن المغلقة، بل الجلوس بالقرب من موظفات الأمن في مقدمة الكلية والالتزام بتعليماتهن.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="instruction-item">
-
-                <span class="instruction-number">
-                    04
-                </span>
-
-                <div>
-
-                    <h3>
-                        السلوك والانضباط الطلابي
-                    </h3>
-
-                    <p>
-                        ضرورة اطلاع الطالبات على لائحة قواعد السلوك والانضباط الطلابي.
-                    </p>
-
-                    <a
-                        href="https://www.iau.edu.sa/sites/default/files/resources/student_code_of_conduct_and_discipline.pdf"
-                        target="_blank"
-                        rel="noopener"
-                        class="instruction-official-link"
+                    <button
+                        type="button"
+                        class="library-document-card student-instructions-toggle"
+                        id="student-instructions-toggle"
+                        aria-expanded="false"
+                        aria-controls="student-instructions-details"
                     >
-                        ⚖️ فتح لائحة السلوك والانضباط
-                        <span>↗</span>
-                    </a>
+
+                        <div class="library-document-icon">
+                            👩🏻‍🎓
+                        </div>
+
+                        <div class="library-document-content">
+
+                            <span class="library-document-type">
+                                تعليمات مهمة
+                            </span>
+
+                            <h2>
+                                تعليمات الطالبات
+                            </h2>
+
+                            <p>
+                                تعليمات مهمة للطالبات داخل الحرم الجامعي.
+                            </p>
+
+                        </div>
+
+                        <span class="library-document-arrow instructions-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+
+                    <section
+                        class="student-instructions-details"
+                        id="student-instructions-details"
+                        hidden
+                    >
+
+                        <div class="instructions-details-heading">
+
+                            <div>
+
+                                <span class="library-document-type">
+                                    تعليمات مهمة
+                                </span>
+
+                                <h2>
+                                    تعليمات الطالبات داخل الحرم الجامعي
+                                </h2>
+
+                            </div>
+
+                            <div class="instructions-heading-icon">
+                                👩🏻‍🎓
+                            </div>
+
+                        </div>
+
+
+                        <div class="instructions-list">
+
+
+                            <article class="instruction-item">
+
+                                <span class="instruction-number">
+                                    01
+                                </span>
+
+                                <div>
+
+                                    <h3>
+                                        البطاقة الجامعية
+                                    </h3>
+
+                                    <p>
+                                        الالتزام بإبراز البطاقة الجامعية أثناء الدخول للحرم الجامعي.
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+
+                            <article class="instruction-item">
+
+                                <span class="instruction-number">
+                                    02
+                                </span>
+
+                                <div>
+
+                                    <h3>
+                                        الفناء الخارجي
+                                    </h3>
+
+                                    <p>
+                                        عدم الخروج في الفناء الخارجي إلا بلبس العباية؛ لأنها منطقة مشتركة مع هيئة التدريس الرجال.
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+
+                            <article class="instruction-item">
+
+                                <span class="instruction-number">
+                                    03
+                                </span>
+
+                                <div>
+
+                                    <h3>
+                                        الفترة المسائية
+                                    </h3>
+
+                                    <p>
+                                        عند انتهاء وقت المحاضرات في الفترة المسائية، عدم الجلوس في الفناء الخارجي أو الأماكن المغلقة، بل الجلوس بالقرب من موظفات الأمن في مقدمة الكلية والالتزام بتعليماتهن.
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+
+                            <article class="instruction-item">
+
+                                <span class="instruction-number">
+                                    04
+                                </span>
+
+                                <div>
+
+                                    <h3>
+                                        السلوك والانضباط الطلابي
+                                    </h3>
+
+                                    <p>
+                                        ضرورة اطلاع الطالبات على لائحة قواعد السلوك والانضباط الطلابي.
+                                    </p>
+
+                                    <a
+                                        href="https://www.iau.edu.sa/sites/default/files/resources/student_code_of_conduct_and_discipline.pdf"
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="instruction-official-link"
+                                    >
+                                        ⚖️ فتح لائحة السلوك والانضباط
+                                        <span>↗</span>
+                                    </a>
+
+                                </div>
+
+                            </article>
+
+                        </div>
+
+                    </section>
 
                 </div>
 
-            </article>
 
-        </div>
-
-    </section>
-
-</div>
-
-
-                <!-- السلوك والانضباط -->
+                <!-- قواعد السلوك -->
 
                 <a
                     href="https://www.iau.edu.sa/sites/default/files/resources/student_code_of_conduct_and_discipline.pdf"
@@ -258,7 +308,7 @@
                 </a>
 
 
-                <!-- الميثاق -->
+                <!-- ميثاق الطالب -->
 
                 <a
                     href="https://www.iau.edu.sa/sites/default/files/resources/university_student_charter_rights_and_duties__2.pdf"
@@ -367,45 +417,232 @@
 
             </div>
 
-
-            <!-- تفاصيل تعليمات الطالبات -->
-
-
-    </main>
+        </section>
 
 
-    <nav class="bottom-nav" aria-label="التنقل الرئيسي">
 
-        <a href="index.html" class="bottom-nav-item">
-            <span class="bottom-nav-icon">⌂</span>
-            <span class="bottom-nav-label">الرئيسية</span>
-        </a>
+        <!-- =====================================
+             FAQ
+        ====================================== -->
 
-        <a href="tools.html" class="bottom-nav-item">
-            <span class="bottom-nav-icon">▦</span>
-            <span class="bottom-nav-label">الأدوات</span>
-        </a>
+        <section
+            class="library-panel"
+            id="library-faq"
+            hidden
+        >
 
-        <a href="services.html" class="bottom-nav-item">
-            <span class="bottom-nav-icon">◇</span>
-            <span class="bottom-nav-label">الخدمات</span>
-        </a>
+            <div class="library-section-heading">
 
-        <a href="library.html" class="bottom-nav-item active">
-            <span class="bottom-nav-icon">▤</span>
-            <span class="bottom-nav-label">المكتبة</span>
-        </a>
+                <h2>
+                    الأسئلة الشائعة
+                </h2>
 
-        <a href="news.html" class="bottom-nav-item">
-            <span class="bottom-nav-icon">▱</span>
-            <span class="bottom-nav-label">الأخبار</span>
-        </a>
+                <p>
+                    إجابات سريعة عن أكثر الخدمات والمعلومات التي قد تحتاجها.
+                </p>
 
-    </nav>
+            </div>
 
 
-    <script src="js/library.js?v=1"></script>
+            <div class="faq-list">
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        كيف أدخل على سجلات الطلاب؟
+                    </summary>
+
+                    <p>
+                        يمكنك الوصول إلى نظام سجلات الطلاب من قسم الأدوات الأكاديمية في وِجهة.
+                    </p>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        كيف أسجل مقرراتي؟
+                    </summary>
+
+                    <p>
+                        يمكنك الاطلاع على دليل تسجيل المقررات ضمن المستندات الرسمية، والذي يشرح خطوات التسجيل في نظام سجلات الطلاب.
+                    </p>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        نسيت كلمة مرور حسابي الجامعي، ماذا أفعل؟
+                    </summary>
+
+                    <p>
+                        انتقل إلى قسم الدعم الفني في دليل الخدمات للوصول إلى خدمات الدعم الرسمية بالجامعة.
+                    </p>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        لدي مشكلة في البريد الجامعي أو أحد أنظمة الجامعة، أين أتوجه؟
+                    </summary>
+
+                    <p>
+                        يمكنك تقديم طلب عن طريق ساند للدعم الفني، أو التواصل مع الدعم الفني على الرقم 0133331111.
+                    </p>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        أين أجد Blackboard؟
+                    </summary>
+
+                    <p>
+                        يمكنك الوصول إليه مباشرة من قسم الأدوات الأكاديمية في وِجهة.
+                    </p>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        أين أجد التقويم الأكاديمي؟
+                    </summary>
+
+                    <p>
+                        ستجد رابط التقويم الأكاديمي ضمن المستندات الرسمية في مكتبة الطالب.
+                    </p>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        أحتاج مساعدة نفسية أو اجتماعية، أين أتوجه؟
+                    </summary>
+
+                    <p>
+                        يمكنك الاطلاع على قسم مركز الإرشاد الجامعي في دليل الخدمات لمعرفة مواقع المركز ووسائل التواصل الرسمية.
+                    </p>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        كيف أعرف حقوقي وواجباتي كطالب جامعي؟
+                    </summary>
+
+                    <p>
+                        يمكنك الاطلاع على ميثاق الطالب الجامعي ضمن المستندات الرسمية في مكتبة الطالب.
+                    </p>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        أين أجد قواعد السلوك والانضباط الطلابي؟
+                    </summary>
+
+                    <p>
+                        تتوفر قواعد السلوك والانضباط الطلابي ضمن المستندات الرسمية في مكتبة الطالب.
+                    </p>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        أين أجد معلومات عن كليتي أو تخصصي؟
+                    </summary>
+
+                    <p>
+                        انتقل إلى قسم الكليات والتخصصات للوصول إلى معلومات الكليات والبرامج الأكاديمية.
+                    </p>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        أين أتابع أخبار وإعلانات الجامعة؟
+                    </summary>
+
+                    <p>
+                        يمكنك زيارة قسم أخبار الجامعة للاطلاع على الأخبار والإعلانات المنشورة من المصادر الرسمية للجامعة.
+                    </p>
+
+                </details>
+
+
+                <details class="faq-item faq-privacy">
+
+                    <summary>
+                        هل وِجهة تطلب تسجيل الدخول أو بياناتي الجامعية؟
+                    </summary>
+
+                    <p>
+                        لا. وِجهة لا تطلب الرقم الجامعي أو كلمة المرور أو أي بيانات شخصية، وإنما تساعدك في الوصول إلى الخدمات والمصادر الرسمية لجامعة الإمام عبدالرحمن بن فيصل.
+                    </p>
+
+                </details>
+
+
+            </div>
+
+        </section>
+
+    </section>
+
+</main>
+
+
+<nav class="bottom-nav" aria-label="التنقل الرئيسي">
+
+    <a href="index.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">⌂</span>
+        <span class="bottom-nav-label">الرئيسية</span>
+    </a>
+
+    <a href="tools.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">▦</span>
+        <span class="bottom-nav-label">الأدوات</span>
+    </a>
+
+    <a href="services.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">◇</span>
+        <span class="bottom-nav-label">الخدمات</span>
+    </a>
+
+    <a href="library.html" class="bottom-nav-item active">
+        <span class="bottom-nav-icon">▤</span>
+        <span class="bottom-nav-label">المكتبة</span>
+    </a>
+
+    <a href="news.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">▱</span>
+        <span class="bottom-nav-label">الأخبار</span>
+    </a>
+
+</nav>
+
+
+<script src="js/library.js?v=3"></script>
 
 </body>
-
 </html>
